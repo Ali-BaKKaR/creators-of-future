@@ -44,7 +44,6 @@ a {
 }
 
 .navbar {
-    position: static;
     min-height: 70px;
     display: flex;
     justify-content: space-between;
@@ -52,6 +51,15 @@ a {
     padding: 0 24px;
     background-color: white;
     width: 100%;
+    z-index: 3;
+    transition: all .7s ease-in;
+}
+
+.scrolled {
+    transition: 1s;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .nav-menu {

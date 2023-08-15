@@ -1,56 +1,9 @@
-.main {
+.travel-background{
     background-size: cover;
     background-image: url("/public/assets/images/beach.png");
-    height: 518px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: white;
-    text-shadow: 2px 2px 24px #000000;
+
 }
 
-.welcome-title {
-    text-align: center;
-    width: 100%;
-}
-
-h1 {
-    font-size: 80px;
-    font-weight: lighter;
-}
-
-h2 {
-    font-size: 48px;
-    color: #171717;
-    font-weight: bold;
-}
-
-h3 {
-    font-size: 40px;
-    color: #171717;
-}
-
-.welcome-title h3 {
-    font-size: 45px;
-    font-weight: lighter;
-    color: white;
-}
-
-h4 {
-    font-size: 32px;
-    font-weight: bold;
-}
-
-h5 {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-h6 {
-    font-size: 20px;
-    font-weight: lighter;
-}
 
 .best-offers p {
     font-size: 32px;
@@ -58,13 +11,6 @@ h6 {
     letter-spacing: 0.42px;
 }
 
-.services {
-    background-color: white;
-}
-
-.services img {
-    margin: 40px auto 5px auto;
-}
 
 .best-offers-title {
     padding: 2% 16%;
@@ -99,28 +45,6 @@ h6 {
     margin: 21px 0px;
 }
 
-.red-button {
-    background-color: #D91438;
-    font-size: 24px;
-    width: 313px;
-    border-radius: 14px;
-    padding: 7px 9px;
-    margin: 40px auto;
-    transition: 0.4s;
-}
-
-.red-button:hover {
-    background-color: #274073;
-}
-
-.red-button a {
-    color: white;
-}
-
-.red-button a:hover {
-    text-decoration: none;
-}
-
 .what-do-we-do {
     background-color: white;
     margin: auto 10%;
@@ -141,9 +65,11 @@ h6 {
     margin: 40px auto;
     background-color: white;
 }
-.packages-for-everyone h4{
+
+.packages-for-everyone h4 {
     margin: 22px;
 }
+
 .packages-for-everyone p {
     font-size: 24px;
     color: #7A7A7A;
@@ -154,25 +80,4 @@ h6 {
 
 .packages-for-everyone .col-md-6 {
     padding: 0px;
-}
-
-.small-red-button {
-    background-color: #D91438;
-    font-size: 20px;
-    width: 133px;
-    border-radius: 14px;
-    padding: 7px 9px;
-    margin: 40px 0px;
-    transition: 0.4s;
-
-}
-
-
-.small-red-button:hover {
-    background-color: #274073;
-}
-
-.small-red-button a {
-    color: white;
-    font-weight: normal;
 }

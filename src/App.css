@@ -6,12 +6,114 @@
     font-family: 'Tajawal';
     text-align: center;
 }
-body{
+
+body {
     background-color: #F7F9FA;
 
 }
 
-.sticky {
-    position: fixed;
-    top: 0;
-  }
+.main {
+    height: 518px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 24px #000000;
+}
+
+.welcome-title {
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    font-size: 80px;
+    font-weight: lighter;
+}
+
+h2 {
+    font-size: 48px;
+    color: #171717;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 40px;
+    color: #171717;
+}
+
+.welcome-title h3 {
+    font-size: 45px;
+    font-weight: lighter;
+    color: white;
+}
+
+h4 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+h5 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+
+.services {
+    background-color: white;
+}
+
+.services img {
+    margin: 40px auto 5px auto;
+}
+
+.red-button {
+    background-color: #D91438;
+    font-size: 24px;
+    width: 313px;
+    border-radius: 14px;
+    padding: 7px 9px;
+    margin: 40px auto;
+    transition: 0.4s;
+    color: white;
+    font-weight: normal;
+}
+
+.red-button:hover {
+    background-color: #274073;
+}
+
+.red-button a {
+    color: white;
+}
+
+.red-button a:hover {
+    text-decoration: none;
+}
+
+.small-red-button {
+    background-color: #D91438;
+    font-size: 20px;
+    width: 133px;
+    border-radius: 14px;
+    padding: 7px 9px;
+    margin: 40px 0px;
+    transition: 0.4s;
+
+}
+
+
+.small-red-button:hover {
+    background-color: #274073;
+}
+
+.small-red-button a {
+    color: white;
+    font-weight: normal;
+}

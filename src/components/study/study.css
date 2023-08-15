@@ -1,0 +1,114 @@
+.study-background {
+    background-image: url("/public/assets/images/study.png");
+    background-size: cover;
+}
+
+.search-course {
+    background-color: #274073;
+    height: 144px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0px 40px;
+}
+
+form {
+    width: 100%;
+}
+
+select {
+    padding: 10px 10px;
+    width: 23%;
+    margin: 20px;
+    text-align: right;
+    color: #274073;
+    font-size: 20px;
+    border-radius: 14px;
+}
+
+option {
+    padding: 10px 10px;
+    width: 23%;
+    margin: 20px;
+    text-align: right;
+    color: #274073;
+    font-size: 20px;
+    border-radius: 14px;
+
+}
+
+input[type='submit'] {
+    margin: 20px;
+    background-color: #D91438;
+    color: white;
+    width: 129px;
+    height: 56px;
+    border: none;
+    border-radius: 14px;
+    font-size: 20px;
+    transition: 0.4s;
+}
+
+input[type='submit']:hover {
+    background-color: #5672aa;
+}
+
+.study-intro {
+    margin: 50px 20px;
+}
+
+.study-intro h2 {
+    text-align: right;
+    margin: 12px auto;
+
+}
+
+.study-program {
+    width: 100%;
+    border-left: 10px #274073 solid;
+    border-radius: 19px;
+    margin: 40px auto;
+}
+
+.study-program img {
+    overflow: hidden;
+    width: 100%;
+}
+
+.institution-name {
+    color: #274073;
+    text-align: right;
+
+}
+
+.institution-header {
+    color: #121;
+    text-align: right;
+    font-weight: lighter;
+}
+
+.institution-header img {
+    width: 27px;
+    height: 27px;
+
+}
+
+.study-program p {
+    font-size: 20px;
+    width: 100%;
+    color: #7A7A7A;
+    font-weight: normal;
+    text-align: right;
+}
+
+.study-program .red-button {
+    color: white;
+    background-color: #274073;
+    font-weight: normal;
+    font-size: 18px;
+    position: absolute;
+    left: 20px;
+    width: auto;
+    margin: auto;
+}

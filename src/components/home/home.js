@@ -2,7 +2,7 @@ import './home.css'
 
 function Home() {
     return (<div >
-        <div className="main">
+        <div className="main travel-background">
             <div className='welcome-title'>
                 <h3>
                     احجز الان
@@ -17,7 +17,6 @@ function Home() {
         </div>
         <div className=' services'>
             <div className='container'>
-
                 <div className='row'>
                     <div className='col-md-4'>
                         <img width='60' height='60' src='assets/icons/english-speaking-icon.png' />
