@@ -1,4 +1,3 @@
-import { selectOptions } from '@testing-library/user-event/dist/select-options';
 import './study.css'
 function Study() {
     return (

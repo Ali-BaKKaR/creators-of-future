@@ -1,6 +1,7 @@
 .study-background {
     background-image: url("/public/assets/images/study.png");
     background-size: cover;
+    /* mask-image: linear-gradient(1,2,3); */
 }
 
 .search-course {

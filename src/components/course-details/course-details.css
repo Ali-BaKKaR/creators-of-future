@@ -1,0 +1,174 @@
+.course-details-header {
+    margin: 40px;
+}
+
+
+#course-image {
+    float: right;
+    width: 100%;
+    height: 433px;
+    border-radius: 0px;
+}
+
+.price>* {
+    border-bottom: 1px solid #27407367;
+}
+
+.price, .booking {
+    background-color: white;
+    border-radius: 19px;
+    padding: 20px 10px;
+    margin-bottom: 30px;
+}
+
+.course-details h3 {
+    color: #274073;
+    margin-top: 40px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.course-details h6 {
+    text-align: right;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+
+.price p {
+    font-size: 20px;
+    margin: 0px 4px;
+    text-align: right;
+    color: #274073;
+    font-weight: bold;
+}
+
+.price h4 {
+    text-align: right;
+    color: #274073;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.price-line {
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.price-line:last-child {
+    border: none;
+}
+
+.booking h4 {
+    color: #274073;
+    text-align: right;
+}
+
+.booking label {
+    font-size: 20px;
+    display: block;
+    text-align: right;
+    margin: 10px auto;
+}
+
+.booking button {
+    background-color: #274073;
+    padding: 5px;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 10px;
+    transition: .5s;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+.booking button:hover {
+    background-color: #D91438;
+    cursor: pointer;
+}
+
+input[type='date'] {
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+    border: #274073 1px solid;
+    color: #274073;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+input[type='date']:hover {
+    background-color: #d3d5d891;
+    cursor: pointer;
+}
+
+#weeks-number {
+    padding: 5px;
+    border-radius: 10px;
+    border: #274073 1px solid;
+    color: #274073;
+    font-size: 20px;
+    width: 100%;
+    text-align: right;
+}
+
+.course-icons {
+    width: 40px;
+    height: 40px;
+}
+
+.info {
+    padding: 40px 10px;
+    border-radius: 19px;
+    margin: 40px -15px;
+    background-color: white;
+}
+
+.course-info {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
+
+.course-info p {
+    margin: 6px auto 0px auto;
+    color: #274073;
+    font-weight: bold;
+    text-align: right;
+}
+
+.course-discription {
+    margin: 30px auto;
+    border-top: 1px solid #27407367;
+    padding-top: 20px;
+}
+
+.course-discription h6 {
+    text-align: right;
+    color: #274073;
+    margin: 10px auto;
+}
+
+.course-discription p {
+    font-size: 18px;
+    color: #7A7A7A;
+    line-height: 2;
+    font-weight: normal;
+    text-align: right;
+}

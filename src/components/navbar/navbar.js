@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import './navbar.css'
-import { Navbar } from 'react-bootstrap';
 
 
 function MyNavbar() {
@@ -43,9 +43,8 @@ function MyNavbar() {
             </div>
             <nav className={navbarClasses.join(" ")}>
                 <div className="nav-branding">
-                    <a href="#" >البرامج السياحية</a>
-                    <a href="#" >التعلم بالخارج</a>
-
+                    <Link to="/">السياحة و السفر</Link>
+                    <Link to="/study"> التعلم بالخارج</Link>
                 </div>
                 <ul className="nav-menu">
                     <li className="nav-item">

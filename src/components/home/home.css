@@ -1,4 +1,4 @@
-.travel-background{
+.travel-background {
     background-size: cover;
     background-image: url("/public/assets/images/beach.png");
 
@@ -76,8 +76,59 @@
     font-weight: 100;
     letter-spacing: 0.5px;
     text-align: right;
+    margin: 10px;
+}
+.packages-for-everyone .small-red-button{
+    margin: 20px 10px;
 }
 
 .packages-for-everyone .col-md-6 {
     padding: 0px;
+}
+
+@media (max-width:768px) {
+    .best-offers p {
+        font-size: 16px;
+    }
+
+    .services img {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .best-offers img {
+        height: 400px;
+    }
+
+    .best-offer {
+        margin-top: 20px;
+    }
+
+    .what-do-we-do {
+        margin: auto;
+    }
+
+    .what-do-we-do :nth-child(2) {
+        margin: 20px auto;
+    }
+    .packages-for-everyone p{
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width:425px) {
+
+    .travel-card-details-right {
+        border-bottom: 1px solid white;
+        margin: 5px 0px;
+
+    }
+    .travel-card-details-left {
+        margin: 5px 0px;
+    }
+    
+    
+
 }
