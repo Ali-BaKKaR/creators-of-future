@@ -113,7 +113,9 @@ input[type='date'] {
 }
 
 input[type='date']:hover {
-    background-color: #d3d5d891;
+    box-shadow: #274073 0px 0px 8px;
+    border: 1px solid #d3d5d891;
+
     cursor: pointer;
 }
 
@@ -125,6 +127,12 @@ input[type='date']:hover {
     font-size: 20px;
     width: 100%;
     text-align: right;
+}
+
+#weeks-number:hover{
+    box-shadow: #274073 0px 0px 8px;
+    border: 1px solid #d3d5d891;
+
 }
 
 .course-icons {

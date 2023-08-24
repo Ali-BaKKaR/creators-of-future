@@ -1,0 +1,153 @@
+.courses-list {
+    background-color: white;
+    margin: 10px auto;
+    transition: 0.2s;
+}
+
+.courses-list:hover {
+    scale: 1.05;
+}
+
+.courses-list img {
+    height: 170px;
+    width: 100%;
+}
+
+.courses-list h6 {
+    color: #274073;
+    text-align: right;
+    font-weight: bold;
+    padding: 10px 10px 0px 10px;
+    margin: 0px;
+}
+
+.courses-list span {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 0px 10px;
+}
+
+.courses-list .courses-list-icon {
+    width: 14px;
+    height: 14px;
+    margin: 4px;
+}
+
+.courses-list p {
+    margin: 0px;
+}
+
+.courses-list-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.courses-list-group div {
+    display: flex;
+    align-items: center;
+}
+
+#courses-list-price {
+    text-align: left;
+    padding: 20px 10px;
+    color: #274073;
+    border-top: #274073 1px solid;
+    margin: 3%;
+    font-weight: bold;
+}
+
+form {
+    display: none;
+}
+
+
+#search-course .collapsible {
+    background-color: white;
+    font-size: 20px;
+    color: #274073;
+    margin-top: 15px;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #274073;
+    text-align: right;
+    outline: none;
+    border-radius: 10px 10px 0px 0px;
+
+}
+
+#search-course button {
+    text-align: right;
+    font-weight: bold;
+    padding: 10px 10px 0px 10px;
+    margin: 0px;
+}
+
+#search-course .collapsible:after {
+    content: '\002B';
+    color: #274073;
+    font-weight: bold;
+    float: left;
+    margin-left: 5px;
+}
+
+#search-course .active:after {
+    content: "\2212";
+}
+
+#search-course .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: white;
+}
+
+#search-course .content :last-child {
+    margin-bottom: 20px;
+ }
+
+.content label {
+    display: block;
+
+}
+
+.content select {
+    display: block;
+    width: 100%;
+    margin: auto;
+    transition: .5s;
+}
+
+.content select:hover {
+    box-shadow: #274073 0px 0px 8px;
+    border: 1px solid #d3d5d891;
+}
+
+.content input[type='text'] {
+    display: block;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid;
+    color: #274073;
+    font-size: 20px;
+    width: 100%;
+    text-align: right;
+    transition: .5s;
+}
+
+.content input[type='text']:hover {
+    box-shadow: #274073 0px 0px 8px;
+    border: 1px solid #d3d5d891;
+
+}
+
+.content label {
+    margin: 12px auto 6px auto;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+}

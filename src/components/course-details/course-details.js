@@ -84,7 +84,7 @@ function CourseDetails() {
                         <h4>الحجز و التقديم</h4>
                         <label for='date-selector'>تاريخ البدء:</label>
                         <input id='date-selector' type='date' />
-                        <label for='weeks-number'>عدد الاسابيع:</label>
+                        <label for='weeks-number'>عدد الساعات :</label>
                         <input id='weeks-number' type='number' />
                         <select >
                             <option value="" disabled selected hidden>الدولة</option>
