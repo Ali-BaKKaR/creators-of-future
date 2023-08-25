@@ -134,15 +134,6 @@ function RenderBestOffers() {
                     </p>
                 </div>
             </div>
-            <details>
-                <summary>Search</summary>
-                <form>
-                    <input type="text" placeholder="Search..." />
-                    <input type="submit" value="Submit" />
-                </form>
-            </details>
-
-
         </div>
 
     </div>

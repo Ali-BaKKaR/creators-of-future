@@ -57,11 +57,7 @@
     margin: 3%;
     font-weight: bold;
 }
-
-form {
-    display: none;
-}
-
+ 
 
 #search-course .collapsible {
     background-color: white;
