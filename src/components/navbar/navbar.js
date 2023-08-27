@@ -48,7 +48,7 @@ function MyNavbar() {
                 </div>
                 <ul className="nav-menu">
                     <li className="nav-item">
-                        <a href="#" className="nav-link">Home</a>
+                    <Link to={'courses'}>Courses</Link>
                     </li>
                     <li className="nav-item">
                         <a href="#" className="nav-link">About</a>

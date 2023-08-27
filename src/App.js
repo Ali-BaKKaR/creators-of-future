@@ -10,14 +10,6 @@ import CourseList from './components/courses-list/CoursesList';
 
 
 function App() {
-  // const [countries, setCountries] = useState([]);
-  // useEffect(() => {
-  //   getCountries();
-  // }, []);
-  // async function getCountries() {
-  //   const { data } = await supabase.from("countries").select();
-  //   setCountries(data);
-  // }
   return (<div>
 
     <MyNavbar />
@@ -25,9 +17,10 @@ function App() {
 
       <Route path="/" element={<Home />}></Route>
       <Route path="/study" element={<Study />}></Route>
+      <Route path="/courses" element={<CourseList />}></Route>
     </Routes>
-   
-  </div>
+
+  </div >
   );
 }
 

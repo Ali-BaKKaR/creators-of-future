@@ -30,7 +30,7 @@ function Study() {
     }
 
     async function getWeeks(country, city) {
-        const { data } = await supabase.from("courses").select('weeks').eq("country", country)
+        const { data } = await supabase.from("courses").select('weeks').eq("country", country).eq("city",city)
         setWeeks(data)
     }
 
