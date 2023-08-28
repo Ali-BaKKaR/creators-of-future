@@ -1,182 +1,234 @@
 .course-details-header {
-    margin: 40px;
+  margin: 40px;
 }
-
 
 #course-image {
-    float: right;
-    width: 100%;
-    height: 433px;
-    border-radius: 0px;
+  float: right;
+  width: 100%;
+  height: 433px;
+  border-radius: 0px;
 }
 
-.price>* {
-    border-bottom: 1px solid #27407367;
+.price > * {
+  border-bottom: 1px solid #27407367;
 }
 
-.price, .booking {
-    background-color: white;
-    border-radius: 19px;
-    padding: 20px 10px;
-    margin-bottom: 30px;
+.price,
+.booking {
+  background-color: white;
+  border-radius: 19px;
+  padding: 20px 10px;
+  margin-bottom: 30px;
 }
 
 .course-details h3 {
-    color: #274073;
-    margin-top: 40px;
-    font-weight: bold;
-    text-align: right;
+  color: #274073;
+  margin-top: 40px;
+  font-weight: bold;
+  text-align: right;
 }
 
 .course-details h6 {
-    text-align: right;
-    font-weight: bold;
-    margin-bottom: 0px;
+  text-align: right;
+  font-weight: bold;
+  margin-bottom: 0px;
 }
 
-
 .price p {
-    font-size: 20px;
-    margin: 0px 4px;
-    text-align: right;
-    color: #274073;
-    font-weight: bold;
+  font-size: 20px;
+  margin: 0px 4px;
+  text-align: right;
+  color: #274073;
+  font-weight: bold;
 }
 
 .price h4 {
-    text-align: right;
-    color: #274073;
-    padding: 5px 20px;
-    display: flex;
-    align-items: center;
+  text-align: right;
+  color: #274073;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
 }
 
 .price-line {
-    padding: 20px 20px;
-    display: flex;
-    align-items: center;
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
 }
 
 .price-line:last-child {
-    border: none;
+  border: none;
 }
 
 .booking h4 {
-    color: #274073;
-    text-align: right;
+  color: #274073;
+  text-align: right;
 }
 
 .booking label {
-    font-size: 20px;
-    display: block;
-    text-align: right;
-    margin: 10px auto;
+  font-size: 20px;
+  display: block;
+  text-align: right;
+  margin: 10px auto;
 }
-
+.booking h6{
+  margin: 10px auto;
+}
 .booking button {
-    background-color: #274073;
-    padding: 5px;
-    color: white;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 10px;
-    transition: .5s;
+  background-color: #274073;
+  padding: 5px;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px;
+  transition: 0.5s;
+  width: 100%;
 }
 
 /* Chrome, Safari, Edge, Opera */
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
-
 
 .booking button:hover {
-    background-color: #D91438;
-    cursor: pointer;
+  box-shadow: #304d88 0px 0px 18px;
+  background-color: #304d88;
+
+  cursor: pointer;
 }
 
-input[type='date'] {
-    width: 100%;
-    border-radius: 10px;
-    padding: 5px;
-    border: #274073 1px solid;
-    color: #274073;
-    font-size: 20px;
-    transition: 0.5s;
+input[type="date"] {
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+  border: #274073 1px solid;
+  color: #274073;
+  font-size: 20px;
+  transition: 0.5s;
 }
 
-input[type='date']:hover {
-    box-shadow: #274073 0px 0px 8px;
-    border: 1px solid #d3d5d891;
+input[type="date"]:hover {
+  box-shadow: #274073 0px 0px 8px;
+  border: 1px solid #d3d5d891;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #weeks-number {
-    padding: 5px;
-    border-radius: 10px;
-    border: #274073 1px solid;
-    color: #274073;
-    font-size: 20px;
-    width: 100%;
-    text-align: right;
+  padding: 5px;
+  border-radius: 10px;
+  border: #274073 1px solid;
+  color: #274073;
+  font-size: 20px;
+  width: 100%;
+  text-align: right;
 }
 
-#weeks-number:hover{
-    box-shadow: #274073 0px 0px 8px;
-    border: 1px solid #d3d5d891;
-
+#weeks-number:hover {
+  box-shadow: #274073 0px 0px 8px;
+  border: 1px solid #d3d5d891;
 }
 
 .course-icons {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .info {
-    padding: 40px 10px;
-    border-radius: 19px;
-    margin: 40px -15px;
-    background-color: white;
+  padding: 40px 10px;
+  border-radius: 19px;
+  margin: 40px -15px;
+  background-color: white;
 }
 
 .course-info {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-evenly;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
 }
 
-
 .course-info p {
-    margin: 6px auto 0px auto;
-    color: #274073;
-    font-weight: bold;
-    text-align: right;
+  margin: 6px auto 0px auto;
+  color: #274073;
+  font-weight: bold;
+  text-align: right;
 }
 
 .course-discription {
-    margin: 30px auto;
-    border-top: 1px solid #27407367;
-    padding-top: 20px;
+  margin: 30px auto;
+  border-top: 1px solid #27407367;
+  padding-top: 20px;
 }
 
 .course-discription h6 {
-    text-align: right;
-    color: #274073;
-    margin: 10px auto;
+  text-align: right;
+  color: #274073;
+  margin: 10px auto;
 }
 
 .course-discription p {
-    font-size: 18px;
-    color: #7A7A7A;
-    line-height: 2;
-    font-weight: normal;
-    text-align: right;
+  font-size: 18px;
+  color: #7a7a7a;
+  line-height: 2;
+  font-weight: normal;
+  text-align: right;
+}
+
+.course-discription li {
+  font-size: 18px;
+  color: #7a7a7a;
+  line-height: 2;
+  font-weight: normal;
+  text-align: right;
+  text-decoration: dotted;
+}
+ol {
+  list-style-type: decimal;
+  counter-reset: item;
+}
+
+li::before {
+  content: counter(item) ". ";
+  counter-increment: item;
+}
+.home-options .col-12 {
+  display: flex;
+}
+.home-options input {
+  display: inline-flex;
+  transform: scale(1.5);
+  margin: 35px 0px 15px 15px;
+}
+.home-options h5 {
+  color: #274073;
+  margin: 35px 0px 15px 15px;
+}
+.home-options .col-6,
+.home-options .col-md-2 {
+  display: flex;
+  align-items: center;
+}
+
+.home-options p {
+  margin: 0px;
+  color: #274073;
+  font-weight: bold;
+  text-align: right;
+}
+
+.home-description {
+  margin: 5px 10px;
+}
+
+.home-options .row {
+  border-bottom: 1px solid #27407367;
+  padding-bottom: 5px;
 }

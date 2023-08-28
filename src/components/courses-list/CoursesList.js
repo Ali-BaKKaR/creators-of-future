@@ -1,6 +1,7 @@
 import "./courses-list.css";
 import { useEffect, useState } from "react";
 import { supabase } from "../../client";
+import { Link } from "react-router-dom";
 
 function CourseList() {
   const [courses, setCourses] = useState([]);
@@ -90,6 +91,9 @@ function CourseList() {
       courses = courses.filter((item) => item.weeks == selectWeeks.value);
 
     setCourses(courses);
+
+    let noCourses = document.getElementById("no-courses");
+    noCourses.style.display = "block";
   }
 
   return (
@@ -182,13 +186,12 @@ function CourseList() {
           </div>
           <div className="col-md-9">
             <div className="row">
-              {}
               {courses.length > 0 ? (
                 courses.map((course) => (
                   <RenderCourse course={course}></RenderCourse>
                 ))
               ) : (
-                <h4 >عذرا لا يوجد نتائج للبحث</h4>
+                <h4 id="no-courses">عذرا لا يوجد نتائج للبحث</h4>
               )}
             </div>
           </div>
@@ -202,13 +205,17 @@ function RenderCourse(props) {
   return (
     <div className=" col-md-4">
       <div className="courses-list">
-        <img width="100%" src={props.course.image_link} />
-        <a href="#">
+        <Link to={"/courseDetails/" + props.course.id}>
+          <img width="100%" src={props.course.image_link} />
+        </Link>
+        <Link to={"/courseDetails/" + props.course.id}>
           {props.course.name.split(".").map((item, index) => (
             <h6 key={index}>{item}</h6>
           ))}
-        </a>
-        <h6>{props.course.type}</h6>
+        </Link>
+        <Link to={"/courseDetails/" + props.course.id}>
+          <h6>{props.course.type}</h6>
+        </Link>
         <span>
           <img
             className="courses-list-icon"
@@ -222,7 +229,7 @@ function RenderCourse(props) {
               className="courses-list-icon"
               src="/assets/icons/mobile-signal-icon.png"
             />
-            <p>مبتدئ {props.course.level}</p>
+            <p> {props.course.level}</p>
           </div>
           <div>
             <img

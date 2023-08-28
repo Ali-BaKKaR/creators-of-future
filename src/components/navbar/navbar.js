@@ -27,18 +27,18 @@ function MyNavbar() {
             <div className="top-nav">
                 <div className="social-media">
                     <a href="#">
-                        <img src="assets/icons/instagram.svg" />
+                        <img src="/assets/icons/instagram.svg" />
                     </a>
                     <a href="#">
-                        <img src="assets/icons/map-pin.svg" />
+                        <img src="/assets/icons/map-pin.svg" />
                     </a>
 
                 </div>
                 <div className="mail-and-phone">
                     <p>tempmail@gmail.com</p>
-                    <img src="assets/icons/mail.svg" />
+                    <img src="/assets/icons/mail.svg" />
                     <p id="phone-number">+92 29 659 4859</p>
-                    <img src="assets/icons/phone.svg" />
+                    <img src="/assets/icons/phone.svg" />
                 </div>
             </div>
             <nav className={navbarClasses.join(" ")}>
@@ -57,7 +57,7 @@ function MyNavbar() {
                         <a href="#" className="nav-link">Contact</a>
                     </li>
                 </ul>
-                <img src="assets/images/logo.png" height={70}></img>
+                <img src="/assets/images/logo.png" height={70}></img>
                 <div onClick={navchange} className="hamburger">
                     <span className="bar"></span>
                     <span className="bar"></span>
