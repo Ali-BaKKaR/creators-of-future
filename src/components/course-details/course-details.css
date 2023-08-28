@@ -85,6 +85,11 @@
   transition: 0.5s;
   width: 100%;
 }
+.booking select{
+  width: 100%;
+  margin: 0px;
+  margin-bottom: 10px;
+}
 
 /* Chrome, Safari, Edge, Opera */
 input[type="number"]::-webkit-outer-spin-button,

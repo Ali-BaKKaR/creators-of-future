@@ -93,7 +93,7 @@ function CourseList() {
     setCourses(courses);
 
     let noCourses = document.getElementById("no-courses");
-    noCourses.style.display = "block";
+    if (noCourses != null) noCourses.style.display = "block";
   }
 
   return (

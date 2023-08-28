@@ -5,18 +5,43 @@ import { supabase } from "../../client";
 import Modal from "../modal/modal";
 import { FaHouseChimney, FaUserLarge, FaBed, FaBath } from "react-icons/fa6";
 import { GiMeal } from "react-icons/gi";
+import { get } from "lodash";
 
 function CourseDetails() {
   const param = useParams();
   const [course, setCourse] = useState([]);
+  const [homes, setHomes] = useState([]);
+  const [airportReception, setAirportReception] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     getCourse(param.id);
+    getHomes(param.id);
+    getAirportReception(param.id);
+
+    
+    const numberInput = document.querySelector('input[type="number"]');
+    numberInput.addEventListener("wheel", (event) => {
+      event.preventDefault();
+    });
   }, []);
 
+  async function getHomes(courseId) {
+    const { data } = await supabase
+      .from("homes")
+      .select()
+      .eq("course_id", courseId);
+    setHomes(data);
+  }
+  async function getAirportReception(courseId) {
+    const { data } = await supabase
+      .from("airport_reception")
+      .select()
+      .eq("course_id", courseId);
+    console.log(data);
+    setAirportReception(data);
+  }
   async function getCourse(id) {
-    console.log(id);
     const { data } = await supabase.from("courses").select().eq("id", id);
     setCourse(data[0]);
   }
@@ -127,6 +152,15 @@ function CourseDetails() {
                 خيارات السكن المتاحة
               </button>
               <label>الاستقبال في المطار:</label>
+              <select>
+                <option>لا اريد خدمة الاستقبال في المطار</option>
+                {airportReception.map((e) => (
+                  <option value={e.id}>
+                    {e.airport_name}, {e.type} , {e.price}ر.س
+                  </option>
+                ))}
+              </select>
+              <button>احجز الان</button>
             </div>
           </div>
         </div>
@@ -140,57 +174,55 @@ function CourseDetails() {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <input
-                type="radio"
-                name="home"
-              />
+              <input type="radio" name="home" />
               <h5>لست بحاجة سكن</h5>
             </div>
           </div>
-          <div className="row">
-            <div className="col-12">
-              <input
-                type="radio"
-                name="home"
-              />
-              <h5>سكن مع عائلة - 200 ر.س</h5>
-            </div>
-            <div className="col-6 col-md-2">
-              <FaHouseChimney size={30} color="#274073"></FaHouseChimney>
-              <div className="home-description">
-                <h6>نوع السكن</h6>
-                <p>مع عائلة</p>
+          {homes.map((e) => (
+            <div className="row">
+              <div className="col-12">
+                <input type="radio" name="home" />
+                <h5>
+                  {e.type} - {e.price} ر.س
+                </h5>
+              </div>
+              <div className="col-6 col-md-2">
+                <FaHouseChimney size={30} color="#274073"></FaHouseChimney>
+                <div className="home-description">
+                  <h6>نوع السكن</h6>
+                  <p>{e.type}</p>
+                </div>
+              </div>
+              <div className="col-6 col-md-2">
+                <FaUserLarge size={30} color="#274073"></FaUserLarge>
+                <div className="home-description">
+                  <h6>العمر</h6>
+                  <p>{e.age}</p>
+                </div>
+              </div>
+              <div className="col-6 col-md-2">
+                <FaBed size={30} color="#274073"></FaBed>
+                <div className="home-description">
+                  <h6>نوع الغرفة</h6>
+                  <p>{e.room_type}</p>
+                </div>
+              </div>
+              <div className="col-6 col-md-2">
+                <GiMeal size={30} color="#274073"></GiMeal>
+                <div className="home-description">
+                  <h6>الوجبات</h6>
+                  <p>{e.meals}</p>
+                </div>
+              </div>
+              <div className="col-6 col-md-2">
+                <FaBath size={30} color="#274073"></FaBath>
+                <div className="home-description">
+                  <h6>الحمام</h6>
+                  <p>{e.bathroom}</p>
+                </div>
               </div>
             </div>
-            <div className="col-6 col-md-2">
-              <FaUserLarge size={30} color="#274073"></FaUserLarge>
-              <div className="home-description">
-                <h6>العمر</h6>
-                <p>20</p>
-              </div>
-            </div>
-            <div className="col-6 col-md-2">
-              <FaBed size={30} color="#274073"></FaBed>
-              <div className="home-description">
-                <h6>نوع الغرفة</h6>
-                <p>غرفة فردية</p>
-              </div>
-            </div>
-            <div className="col-6 col-md-2">
-              <GiMeal size={30} color="#274073"></GiMeal>
-              <div className="home-description">
-                <h6>الوجبات</h6>
-                <p>غداء و عشاء</p>
-              </div>
-            </div>
-            <div className="col-6 col-md-2">
-              <FaBath size={30} color="#274073"></FaBath>
-              <div className="home-description">
-                <h6>الحمام</h6>
-                <p>مشترك</p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     );
