@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import CourseDetails from "./components/course-details/course-details";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CourseList from "./components/courses-list/CoursesList";
-import Modal from "./components/modal/modal";
+import TravelList from "./components/travel-list/travelList";
 
 function App() {
   return (
@@ -14,11 +14,11 @@ function App() {
       <MyNavbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="travel" element={<TravelList />}></Route>
         <Route path="/study" element={<Study />}></Route>
         <Route path="/courses" element={<CourseList />}></Route>
         <Route path="/courseDetails/:id" element={<CourseDetails />}></Route>
       </Routes>
-      <Modal></Modal>
     </div>
   );
 }

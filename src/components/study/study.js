@@ -14,7 +14,7 @@ function Study() {
   }, []);
 
   async function getCourses() {
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from("courses")
       .select("name,image_link,country,city,hours,description")
       .eq("study_intro", true);
@@ -123,6 +123,7 @@ function Study() {
           <div className="row">
             <div className="col-md-3">
               <img
+                alt=""
                 width="60"
                 height="60"
                 src="assets/icons/passport-ticket-icon.png"
@@ -130,15 +131,26 @@ function Study() {
               <h5>الاقامة</h5>
             </div>
             <div className="col-md-3">
-              <img width="60" height="60" src="assets/icons/home-icon.png" />
+              <img
+                alt=""
+                width="60"
+                height="60"
+                src="assets/icons/home-icon.png"
+              />
               <h5>تأمين السكن</h5>
             </div>
             <div className="col-md-3">
-              <img width="60" height="60" src="assets/icons/advisor-icon.png" />
+              <img
+                alt=""
+                width="60"
+                height="60"
+                src="assets/icons/advisor-icon.png"
+              />
               <h5>مستشار دائم</h5>
             </div>
             <div className="col-md-3">
               <img
+                alt=""
                 width="60"
                 height="60"
                 src="assets/icons/passport-ticket-icon.png"
@@ -167,16 +179,17 @@ function RenderIntroCourse(props) {
       <div className=" study-program container-fluid">
         <div className="row">
           <div className="col-md-4">
-            <img src={props.course.image_link} />
-          </div>
+            <img alt=" " src={props.course.image_link} />
+          </div> 
           <div className="col-md-8">
             <h5 className="institution-name">{props.course.name}</h5>
             <h5 className="institution-header">
-              {props.course.country} <img src="assets/icons/map-pin-icon.png" />
+              {props.course.country}{" "}
+              <img alt=" " src="assets/icons/map-pin-icon.png" />
             </h5>
             <h5 className="institution-header">
               {props.course.hours} ساعة خلال الاسبوع{" "}
-              <img src="assets/icons/calendar-icon.png" />
+              <img alt=" " src="assets/icons/calendar-icon.png" />
             </h5>
             <p>
               {props.course.description.split(".").map((item, index) => (

@@ -1,0 +1,48 @@
+.book-course {
+  margin: 40px;
+  padding: 0px 80px;
+}
+
+.book-course input {
+  display: block;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid;
+  color: #274073;
+  font-size: 20px;
+  width: 100%;
+  text-align: right;
+  transition: 0.5s;
+}
+
+.book-course input:hover {
+  box-shadow: #274073 0px 0px 8px;
+  border: 1px solid #d3d5d891;
+}
+
+.book-course h6 {
+  text-align: right;
+  color: #274073;
+}
+
+.book-course textarea {
+  width: 100%;
+  height: 100px;
+  text-align: right;
+  transition: .5s;
+  padding: 5px;
+}
+
+.book-course input[type="submit"] {
+  background-color: #274073;
+  color: white;
+  width: auto;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.book-course textarea:hover {
+  box-shadow: #274073 0px 0px 8px;
+  border: 1px solid #d3d5d891;
+}

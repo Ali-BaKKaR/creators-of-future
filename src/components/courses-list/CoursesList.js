@@ -25,6 +25,8 @@ function CourseList() {
         }
       });
     }
+    let noCourses = document.getElementById("no-courses");
+    if (noCourses !== null) noCourses.style.opacity = "0";
   }, []);
 
   async function getCourses() {
@@ -70,7 +72,7 @@ function CourseList() {
     let selectType = document.getElementById("select-type");
     let courses;
 
-    if (selectName.value != "") {
+    if (selectName.value !== "") {
       const { data } = await supabase
         .from("courses")
         .select()
@@ -81,19 +83,21 @@ function CourseList() {
       courses = data;
     }
 
-    if (selectCountry.value != "")
-      courses = courses.filter((item) => item.country == selectCountry.value);
-    if (selectCity.value != "")
-      courses = courses.filter((item) => item.city == selectCity.value);
-    if (selectType.value != "")
-      courses = courses.filter((item) => item.type == selectType.value);
-    if (selectWeeks.value != "")
-      courses = courses.filter((item) => item.weeks == selectWeeks.value);
+    if (selectCountry.value !== "")
+      courses = courses.filter((item) => item.country === selectCountry.value);
+    if (selectCity.value !== "")
+      courses = courses.filter((item) => item.city === selectCity.value);
+    if (selectType.value !== "")
+      courses = courses.filter((item) => item.type === selectType.value);
+    if (selectWeeks.value !== "")
+      courses = courses.filter(
+        (item) => item.weeks === parseInt(selectWeeks.value)
+      );
 
     setCourses(courses);
 
     let noCourses = document.getElementById("no-courses");
-    if (noCourses != null) noCourses.style.display = "block";
+    if (noCourses !== null) noCourses.style.display = "block";
   }
 
   return (
@@ -206,7 +210,7 @@ function RenderCourse(props) {
     <div className=" col-md-4">
       <div className="courses-list">
         <Link to={"/courseDetails/" + props.course.id}>
-          <img width="100%" src={props.course.image_link} />
+          <img alt=" " width="100%" src={props.course.image_link} />
         </Link>
         <Link to={"/courseDetails/" + props.course.id}>
           {props.course.name.split(".").map((item, index) => (
@@ -218,6 +222,7 @@ function RenderCourse(props) {
         </Link>
         <span>
           <img
+            alt=" "
             className="courses-list-icon"
             src="assets/icons/map-pin-icon.png"
           />
@@ -226,6 +231,7 @@ function RenderCourse(props) {
         <div className="courses-list-group">
           <div>
             <img
+              alt=" "
               className="courses-list-icon"
               src="/assets/icons/mobile-signal-icon.png"
             />
@@ -233,6 +239,7 @@ function RenderCourse(props) {
           </div>
           <div>
             <img
+              alt=" "
               className="courses-list-icon"
               src="/assets/icons/male-icon.png"
             />
@@ -240,6 +247,7 @@ function RenderCourse(props) {
           </div>
           <div>
             <img
+              alt=" "
               className="courses-list-icon"
               src="/assets/icons/project-icon.png"
             />

@@ -1,16 +1,4 @@
-.list-header {
-  margin: 15px;
-}
 
-.list-header h4 {
-  text-align: right;
-  color: #274073;
-}
-
-.list-header h5 {
-  font-weight: normal;
-  text-align: right;
-}
 
 .courses-list {
   background-color: white;
@@ -183,7 +171,4 @@
   /* scale: 1.01; */
   cursor: pointer;
 }
-
-#no-courses {
-  display: none;
-}
+ 

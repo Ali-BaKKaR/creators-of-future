@@ -5,7 +5,7 @@ import { supabase } from "../../client";
 import Modal from "../modal/modal";
 import { FaHouseChimney, FaUserLarge, FaBed, FaBath } from "react-icons/fa6";
 import { GiMeal } from "react-icons/gi";
-import { get } from "lodash";
+import BookCourse from "../book-course/bookCourse";
 
 function CourseDetails() {
   const param = useParams();
@@ -13,13 +13,13 @@ function CourseDetails() {
   const [homes, setHomes] = useState([]);
   const [airportReception, setAirportReception] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [booking, setBooking] = useState(false);
 
   useEffect(() => {
     getCourse(param.id);
     getHomes(param.id);
     getAirportReception(param.id);
 
-    
     const numberInput = document.querySelector('input[type="number"]');
     numberInput.addEventListener("wheel", (event) => {
       event.preventDefault();
@@ -38,7 +38,6 @@ function CourseDetails() {
       .from("airport_reception")
       .select()
       .eq("course_id", courseId);
-    console.log(data);
     setAirportReception(data);
   }
   async function getCourse(id) {
@@ -51,6 +50,9 @@ function CourseDetails() {
       <Modal open={isOpen} onClose={() => setIsOpen(false)}>
         <HomeOptions />
       </Modal>
+      <Modal open={booking} onClose={() => setBooking(false)}>
+        <BookCourse></BookCourse>
+      </Modal>
       <div className="course-details-header">
         <h3>{course.name}</h3>
         <h6>{course.country + "," + course.city}</h6>
@@ -60,13 +62,14 @@ function CourseDetails() {
         <div className="row">
           <div className="col-md-8">
             <div className="row">
-              <img id="course-image" src={course.image_link} />
+              <img alt="" id="course-image" src={course.image_link} />
             </div>
             <div className=" info">
               <div id="course-info-group" className="row">
                 <div className="col-4 course-info">
                   <div className="course-icons">
                     <img
+                      alt=""
                       className="course-icons"
                       src="/assets/icons/mobile-signal-icon.png"
                     />
@@ -79,6 +82,7 @@ function CourseDetails() {
                 <div className="col-4 course-info">
                   <div>
                     <img
+                      alt=""
                       className="course-icons"
                       src="/assets/icons/male-icon.png"
                     />
@@ -91,6 +95,7 @@ function CourseDetails() {
                 <div className="col-4 course-info">
                   <div className="course-icons">
                     <img
+                      alt=""
                       className="course-icons"
                       src="/assets/icons/project-icon.png"
                     />
@@ -144,9 +149,9 @@ function CourseDetails() {
             <div className="booking">
               <h4>الحجز و التقديم</h4>
               <label for="date-selector">تاريخ البدء:</label>
-              <input id="date-selector" type="date" />
-              <label for="weeks-number">عدد الساعات :</label>
-              <input id="weeks-number" type="number" />
+              <input id="date-selector" type="date" required />
+              <label for="weeks-number">عدد الاسابيع :</label>
+              <input id="weeks-number" type="number" required />
               <h6>السكن</h6>
               <button onClick={() => setIsOpen(true)}>
                 خيارات السكن المتاحة
@@ -160,7 +165,15 @@ function CourseDetails() {
                   </option>
                 ))}
               </select>
-              <button>احجز الان</button>
+              <button
+                onClick={() => {
+                  if (validateForm()) {
+                    setBooking(true);
+                  } else alert("يرجى تعبئة جميع الحقول");
+                }}
+              >
+                احجز الان
+              </button>
             </div>
           </div>
         </div>
@@ -174,7 +187,7 @@ function CourseDetails() {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <input type="radio" name="home" />
+              <input type="radio" name="home" checked />
               <h5>لست بحاجة سكن</h5>
             </div>
           </div>
@@ -227,6 +240,18 @@ function CourseDetails() {
       </div>
     );
   }
+}
+
+function validateForm() {
+  var isValid = true;
+  var requiredFields = document.querySelectorAll("input[required]");
+  for (var i = 0; i < requiredFields.length; i++) {
+    if (requiredFields[i].value === "") {
+      isValid = false;
+      break;
+    }
+  }
+  return isValid;
 }
 
 export default CourseDetails;

@@ -1,0 +1,62 @@
+.render-travel {
+  background-color: white;
+  transition: 0.2s;
+}
+.render-travel:hover {
+  scale: 1.05;
+}
+.render-travel-details {
+  margin: 10px 8px;
+}
+
+.travel-list img {
+  width: 100%;
+  height: 170px;
+}
+.travel-list h6 {
+  text-align: right;
+  color: #274073;
+  font-weight: bold;
+}
+.travel-list span {
+  display: flex;
+  align-items: center;
+}
+.travel-list span h6 {
+  margin-bottom: 0px;
+  color: black;
+  font-weight: normal;
+}
+.travel-list .travel-list-icon {
+  width: 14px;
+  height: 14px;
+  margin: 4px;
+}
+.travel-list p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+}
+
+.travel-list p div {
+  text-align: right;
+}
+.travel-list .list-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.travel-list .small-red-button {
+  width: fit-content;
+  color: white;
+  background-color: #274073;
+  font-weight: normal;
+  font-size: 16px;
+  margin: 15px;
+}
+/* 
+#no-travel{
+    display: none;
+} */

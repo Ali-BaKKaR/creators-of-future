@@ -19,27 +19,27 @@ function Home() {
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-4 col-6 col-sm-4'>
-                        <img width='60' height='60' src='assets/icons/english-speaking-icon.png' />
+                        <img alt='' width='60' height='60' src='assets/icons/english-speaking-icon.png' />
                         <h5>تعلم الإنكليزية بالخارج</h5>
                     </div>
                     <div className='col-md-4 col-6 col-sm-4'>
-                        <img src='assets/icons/flight-ticket-icon.png' />
+                        <img alt=" " src='assets/icons/flight-ticket-icon.png' />
                         <h5>حجز تذاكر</h5>
                     </div>
                     <div className='col-md-4 col-6 col-sm-4'>
-                        <img width='60' height='60' src='assets/icons/driving-card-icon.png' />
+                        <img alt=" " width='60' height='60' src='assets/icons/driving-card-icon.png' />
                         <h5>شهادات قيادة دولية</h5>
                     </div>
                     <div className='col-md-4 col-6 col-sm-4'>
-                        <img src='assets/icons/passport-ticket-icon.png' />
+                        <img alt=" " src='assets/icons/passport-ticket-icon.png' />
                         <h5>تأشيرات دخول</h5>
                     </div>
                     <div className='col-md-4 col-6 col-sm-4'>
-                        <img src='assets/icons/adventure-icon.png' />
+                        <img alt=" " src='assets/icons/adventure-icon.png' />
                         <h5>رحلات سياحية</h5>
                     </div>
                     <div className='col-md-4 col-6 col-sm-4'>
-                        <img src='assets/icons/hotel-icon.png' />
+                        <img alt=" " src='assets/icons/hotel-icon.png' />
                         <h5>حجز فنادق</h5>
                     </div>
                 </div>
@@ -81,7 +81,7 @@ function Home() {
         <div className='container-fluid packages-for-everyone'>
             <div className='row'>
                 <div className='col-md-6'>
-                    <img src='assets/images/package for everyone.png' width='100%' height='100%' />
+                    <img alt=" " src='assets/images/package for everyone.png' width='100%' height='100%' />
                 </div>
                 <div className='col-md-6'>
                     <h4>بكجات مناسبة للجميع</h4>
@@ -111,7 +111,7 @@ function Home() {
 
 function RenderBestOffers() {
     return <div className='best-offer'>
-        <img src='assets/images/Dubai.png' width='100%' />
+        <img alt=" " src='assets/images/Dubai.png' width='100%' />
         <div className='container travel-card-details'>
             <div className='row'>
                 <div className='col-md-6 travel-card-details-right'>

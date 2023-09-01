@@ -1,162 +1,175 @@
 .top-nav {
-    display: flex;
-    height: 50px;
-    background-color: #274073;
-    justify-content: space-between;
-    align-items: center;
-    color: #C7CFD9;
-    font-weight: bold;
+  display: flex;
+  height: 50px;
+  background-color: #274073;
+  justify-content: space-between;
+  align-items: center;
+  color: #c7cfd9;
+  font-weight: bold;
 }
 
 .top-nav img {
-    height: 24px;
-    width: 24px;
-    margin: auto 10px;
+  height: 24px;
+  width: 24px;
+  margin: auto 10px;
 }
 
 .top-nav p {
-    margin: auto 10px;
+  margin: auto 10px;
 }
 
 .mail-and-phone {
-    display: flex;
-    margin: auto 30px;
+  display: flex;
+  margin: auto 30px;
 }
 
 .social-media {
-    margin: auto 30px;
-
+  margin: auto 30px;
 }
 
 #phone-number {
-    direction: ltr;
+  direction: ltr;
 }
 
-
 li {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    color: #171717;
-    text-decoration: none;
-    font-weight: bold;
+  color: #171717;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .navbar {
-    min-height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 24px;
-    background-color: white;
-    width: 100%;
-    z-index: 3;
-    transition: all .7s ease-in;
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background-color: white;
+  width: 100%;
+  z-index: 3;
+  transition: all 0.7s ease-in;
 }
 
 .scrolled {
-    transition: 1s;
-    position: fixed;
-    top: 0;
-    left: 0;
+  transition: 1s;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .nav-menu {
-    position: fixed;
-    left: 0;
-    top: -100%;
-    gap: 0;
-    flex-direction: column;
-    background-color: #FFFFFF;
-    width: 100%;
-    text-align: center;
-    transition: 0.8s;
+  position: fixed;
+  left: 0;
+  top: -100%;
+  gap: 0;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 100%;
+  text-align: center;
+  transition: 0.8s;
 }
 
 .nav-branding {
-    font-size: 20px;
-    width: 30%;
+  font-size: 20px;
+  width: 30%;
 }
 
 .nav-branding a {
-    margin: 20px;
+  margin: 20px;
 }
 
 .nav-link {
-    transition: 0.7s ease;
+  transition: 0.7s ease;
 }
 
-.nav-link:hover {
-    color: dodgerblue;
+.navbar a {
+  position: relative;
+  bottom: 0;
+  transition: bottom 0.2s ease;
+}
+
+.hamburger-button {
+  /* text-align: -webkit-left; */
+  width: fit-content;
+  cursor: pointer;
+}
+
+.navbar a:hover {
+  bottom: 1px;
+}
+
+.navbar a:hover {
+  text-decoration: none;
+  color: #274073;
+  text-shadow: #304d88 0px 0px 1px;
 }
 
 .hamburger {
-    display: block;
-    cursor: pointer;
-    text-align: -webkit-left;
-    width: 30%;
+  display: block;
+  text-align: -webkit-left;
+  width: 30%;
 }
 
 .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px 0px;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #171717;
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #171717;
 }
 
 .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
+  opacity: 0;
 }
 
 .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
 }
 
 .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 .nav-item {
-    margin: 16px 0;
+  margin: 16px 0;
 }
 
 .nav-menu.active {
-    left: 0;
-    top: 70px;
+  left: 0;
+  top: 0px;
 }
 
-@media(max-width: 768px) {
-    .nav-branding a {
-        font-size: 15px;
-        margin: 7px;
-    }
+@media (max-width: 768px) {
+  .nav-branding a {
+    font-size: 15px;
+    margin: 7px;
+  }
 }
 
-@media(max-width: 425px) {
-    .top-nav {
-        display: none;
-    }
+@media (max-width: 425px) {
+  .top-nav {
+    display: none;
+  }
 
+  .nav-branding a {
+    font-size: 16px;
+    margin: 3px;
+  }
 
-    .nav-branding a {
-        font-size: 16px;
-        margin: 3px;
-    }
+  .nav-branding {
+    width: auto;
+  }
 
-    .nav-branding {
-        width: auto;
-    }
+  .hamburger {
+    width: auto;
+  }
 
-    .hamburger {
-        width: auto;
-    }
-
-    .navbar img {
-
-        display: none;
-    }
+  .navbar img {
+    display: none;
+  }
 }
