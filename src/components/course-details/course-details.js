@@ -14,6 +14,13 @@ function CourseDetails() {
   const [airportReception, setAirportReception] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [booking, setBooking] = useState(false);
+  const [courseData, setCourseData] = useState({
+    date: null,
+    weeks: "",
+    airportReception: null,
+    homeId: null,
+    courseId: param.id,
+  });
 
   useEffect(() => {
     getCourse(param.id);
@@ -45,13 +52,23 @@ function CourseDetails() {
     setCourse(data[0]);
   }
 
+  const handleChange = (event) => {
+    setCourseData({
+      ...courseData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <div className="course-details">
       <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-        <HomeOptions />
+        <HomeOptions
+          handleChange={handleChange}
+          onClose={() => setIsOpen(false)}
+        />
       </Modal>
       <Modal open={booking} onClose={() => setBooking(false)}>
-        <BookCourse></BookCourse>
+        <BookCourse courseData={courseData}></BookCourse>
       </Modal>
       <div className="course-details-header">
         <h3>{course.name}</h3>
@@ -149,15 +166,27 @@ function CourseDetails() {
             <div className="booking">
               <h4>الحجز و التقديم</h4>
               <label for="date-selector">تاريخ البدء:</label>
-              <input id="date-selector" type="date" required />
+              <input
+                id="date-selector"
+                name="date"
+                onChange={handleChange}
+                type="date"
+                required
+              />
               <label for="weeks-number">عدد الاسابيع :</label>
-              <input id="weeks-number" type="number" required />
+              <input
+                id="weeks-number"
+                name="weeks"
+                onChange={handleChange}
+                type="number"
+                required
+              />
               <h6>السكن</h6>
               <button onClick={() => setIsOpen(true)}>
                 خيارات السكن المتاحة
               </button>
               <label>الاستقبال في المطار:</label>
-              <select>
+              <select name="airportReception" onChange={handleChange}>
                 <option>لا اريد خدمة الاستقبال في المطار</option>
                 {airportReception.map((e) => (
                   <option value={e.id}>
@@ -169,6 +198,7 @@ function CourseDetails() {
                 onClick={() => {
                   if (validateForm()) {
                     setBooking(true);
+                    console.log(courseData);
                   } else alert("يرجى تعبئة جميع الحقول");
                 }}
               >
@@ -181,20 +211,36 @@ function CourseDetails() {
     </div>
   );
 
-  function HomeOptions() {
+  function HomeOptions({ handleChange, onClose }) {
     return (
       <div className="home-options">
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <input type="radio" name="home" checked />
+              <input
+                value={null}
+                type="radio"
+                name="homeId"
+                onChange={(e) => {
+                  onClose();
+                  handleChange(e);
+                }}
+              />
               <h5>لست بحاجة سكن</h5>
             </div>
           </div>
           {homes.map((e) => (
             <div className="row">
               <div className="col-12">
-                <input type="radio" name="home" />
+                <input
+                  value={e.id}
+                  type="radio"
+                  name="homeId"
+                  onChange={(e) => {
+                    onClose();
+                    handleChange(e);
+                  }}
+                />
                 <h5>
                   {e.type} - {e.price} ر.س
                 </h5>
