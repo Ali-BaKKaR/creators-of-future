@@ -7,6 +7,7 @@ import CourseDetails from "./components/course-details/course-details";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CourseList from "./components/courses-list/CoursesList";
 import TravelList from "./components/travel-list/travelList";
+import TravelDetails from "./components/travel-details/travelDetails";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/study" element={<Study />}></Route>
         <Route path="/courses" element={<CourseList />}></Route>
         <Route path="/courseDetails/:id" element={<CourseDetails />}></Route>
+        <Route path="/travelDetails/:id" element={<TravelDetails />}></Route>
       </Routes>
     </div>
   );

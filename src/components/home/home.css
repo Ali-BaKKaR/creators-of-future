@@ -16,6 +16,10 @@
     padding: 2% 16%;
 }
 
+.travel-card-image{
+    height: 250px;
+}
+
 .travel-card-details {
     background-color: #274073;
     color: white;
@@ -23,10 +27,37 @@
     padding: 2px;
 }
 
+.best-offer{
+    transition: .3s;
+
+}
+.best-offer:hover{
+    scale: 1.02;
+}
+.travel-card-details .row{
+    align-items: center;
+    height: 230px;
+}
+
 #best-offers-middle .travel-card-details {
     background-color: #4AA2D9;
 }
-
+.travel-card-details h4{
+    color: white;
+}
+.travel-card-details a{
+    transition: bottom 0.2s ease;
+    position: relative;
+    bottom: 0px;
+}
+.travel-card-details a:hover{
+    bottom: 4px;
+    text-decoration: none;
+}
+.red-button:hover{
+    box-shadow: #274073 0px 0px 8px;
+    border: 1px solid #d3d5d891;
+}
 
 .travel-card-details p {
     font-size: 24px;

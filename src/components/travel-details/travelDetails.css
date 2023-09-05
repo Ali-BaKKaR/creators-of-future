@@ -1,0 +1,95 @@
+.travel-details-header {
+  margin: 40px;
+}
+
+#travel-image {
+  float: right;
+  width: 100%;
+  height: 433px;
+  border-radius: 0px;
+}
+
+.travel-details h3 {
+  color: #274073;
+  margin-top: 40px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.travel-details h6 {
+  text-align: right;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.travel-info {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+
+.travel-info p {
+  margin: 6px auto 0px auto;
+  color: #274073;
+  font-weight: bold;
+  text-align: right;
+}
+
+.travel-discription {
+  margin: 30px auto;
+  border-top: 1px solid #27407367;
+  padding-top: 20px;
+}
+
+.travel-discription h6 {
+  text-align: right;
+  color: #274073;
+  margin: 10px auto;
+}
+
+.travel-discription p {
+  font-size: 18px;
+  color: #7a7a7a;
+  line-height: 2;
+  font-weight: normal;
+  text-align: right;
+}
+
+.travel-discription li {
+  font-size: 18px;
+  color: #7a7a7a;
+  line-height: 2;
+  font-weight: normal;
+  text-align: right;
+  text-decoration: dotted;
+}
+
+.travel-details input {
+  width: 100%;
+  margin: 10px 0px;
+  padding: 10px 10px;
+  text-align: right;
+  color: #274073;
+  border: #274073 solid 1px;
+  font-size: 20px;
+  border-radius: 14px;
+  transition: 0.5s;
+}
+.book-travel input:hover {
+  box-shadow: #274073 0px 0px 8px;
+  border: 1px solid #d3d5d891;
+}
+
+.book-travel input[type='submit'] {
+  background-color: #274073;
+  margin-top: 10px;
+  padding: 5px;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px;
+  transition: 0.5s;
+  width: 100%;
+  text-align: center;
+}

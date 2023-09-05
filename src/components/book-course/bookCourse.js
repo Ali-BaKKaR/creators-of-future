@@ -20,24 +20,21 @@ function BookCourse(props) {
   async function handleSubmit(event) {
     event.preventDefault();
     // handle form submission here
-    console.log(props.courseData)
-     const {error}= await supabase.from("course_book").insert(
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          notes: formData.message,
-          weeks: props.courseData.weeks,
-          date: handleDate(),
-          airport_reception_id: props.courseData.airportReception,
-          home_id: props.courseData.homeId,
-          course_id: props.courseData.courseId,
-        },
-      );
-    // await supabase.from("course_book").insert({
-    //   name: "ail",
-    // });
-    console.log(error)
+    const { error } = await supabase.from("course_book").insert({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      notes: formData.message,
+      weeks: props.courseData.weeks,
+      date: handleDate(),
+      airport_reception_id: props.courseData.airportReception,
+      home_id: props.courseData.homeId,
+      course_id: props.courseData.courseId,
+    });
+    if (error === null) {
+      alert("شكرا لك تم التسجيل بنجاح,سنتواصل معك لتاكيد المعلومات");
+      document.location.reload();
+    }
   }
 
   function handleDate() {

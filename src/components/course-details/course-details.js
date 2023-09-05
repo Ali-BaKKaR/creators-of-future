@@ -73,7 +73,6 @@ function CourseDetails() {
       <div className="course-details-header">
         <h3>{course.name}</h3>
         <h6>{course.country + "," + course.city}</h6>
-        <h1></h1>
       </div>
       <div className="container">
         <div className="row">
