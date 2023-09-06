@@ -125,7 +125,6 @@
 
 .content select:hover {
   box-shadow: #274073 0px 0px 8px;
-  border: 1px solid #d3d5d891;
 }
 
 .content input[type="text"] {
@@ -142,7 +141,6 @@
 
 .content input[type="text"]:hover {
   box-shadow: #274073 0px 0px 8px;
-  border: 1px solid #d3d5d891;
 }
 
 .content label {

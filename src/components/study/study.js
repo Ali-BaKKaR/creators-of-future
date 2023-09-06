@@ -1,6 +1,7 @@
 import "./study.css";
 import { supabase } from "../../client";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Study() {
   const [courses, setCourses] = useState([]);
@@ -16,7 +17,7 @@ function Study() {
   async function getCourses() {
     const { data } = await supabase
       .from("courses")
-      .select("name,image_link,country,city,hours,description")
+      .select("id,name,image_link,country,city,hours,description")
       .eq("study_intro", true);
     setCourses(data);
   }
@@ -166,9 +167,9 @@ function Study() {
           <RenderIntroCourse course={course}></RenderIntroCourse>
         ))}
       </div>
-      <a href="#" className="red-button">
+      <Link id="more-courses" className="red-button" to={"/courses"}>
         تصفح المزيد من الكورسات
-      </a>
+      </Link>
     </div>
   );
 }
@@ -180,7 +181,7 @@ function RenderIntroCourse(props) {
         <div className="row">
           <div className="col-md-4">
             <img alt=" " src={props.course.image_link} />
-          </div> 
+          </div>
           <div className="col-md-8">
             <h5 className="institution-name">{props.course.name}</h5>
             <h5 className="institution-header">
@@ -196,9 +197,11 @@ function RenderIntroCourse(props) {
                 <p key={index}>{item}</p>
               ))}
             </p>
-            <a className="red-button" href="#">
-              عرض كل التفاصيل
-            </a>
+            <Link to={"/courseDetails/" + props.course.id}>
+              <a className="red-button" href="#">
+                عرض كل التفاصيل
+              </a>
+            </Link>
           </div>
         </div>
       </div>

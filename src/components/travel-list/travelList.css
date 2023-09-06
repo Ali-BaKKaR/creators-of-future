@@ -56,6 +56,11 @@
   font-size: 16px;
   margin: 15px;
 }
+
+.travel-list .small-red-button:hover{
+  box-shadow: #274073 0px 0px 8px;
+
+}
 /* 
 #no-travel{
     display: none;

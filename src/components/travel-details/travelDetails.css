@@ -77,7 +77,6 @@
 }
 .book-travel input:hover {
   box-shadow: #274073 0px 0px 8px;
-  border: 1px solid #d3d5d891;
 }
 
 .book-travel input[type='submit'] {
@@ -92,4 +91,15 @@
   transition: 0.5s;
   width: 100%;
   text-align: center;
+}
+
+
+.travel-details .info ol {
+  list-style-type: decimal;
+  counter-reset: item;
+}
+
+.travel-details .info li::before {
+  content: counter(item) ". ";
+  counter-increment: item;
 }

@@ -56,7 +56,6 @@
 }
 .red-button:hover{
     box-shadow: #274073 0px 0px 8px;
-    border: 1px solid #d3d5d891;
 }
 
 .travel-card-details p {

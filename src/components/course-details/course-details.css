@@ -122,7 +122,6 @@ input[type="date"] {
 
 input[type="date"]:hover {
   box-shadow: #274073 0px 0px 8px;
-  border: 1px solid #d3d5d891;
 
   cursor: pointer;
 }
@@ -139,7 +138,6 @@ input[type="date"]:hover {
 
 #weeks-number:hover {
   box-shadow: #274073 0px 0px 8px;
-  border: 1px solid #d3d5d891;
 }
 
 .course-icons {
@@ -195,12 +193,12 @@ input[type="date"]:hover {
   text-align: right;
   text-decoration: dotted;
 }
-ol {
+.course-details .info ol {
   list-style-type: decimal;
   counter-reset: item;
 }
 
-li::before {
+.course-details .info li::before {
   content: counter(item) ". ";
   counter-increment: item;
 }

@@ -17,7 +17,6 @@
 
 .book-course input:hover {
   box-shadow: #274073 0px 0px 8px;
-  border: 1px solid #d3d5d891;
 }
 
 .book-course h6 {
@@ -44,5 +43,4 @@
 
 .book-course textarea:hover {
   box-shadow: #274073 0px 0px 8px;
-  border: 1px solid #d3d5d891;
 }

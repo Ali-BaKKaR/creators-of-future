@@ -1,0 +1,42 @@
+.footer {
+  margin-top: 40px;
+  background-color: #b0b5c00e;
+}
+.footer a {
+  display: block;
+  text-align: right;
+  padding: 10px 0px;
+}
+
+.footer svg {
+  background: white;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  padding: 5px;
+}
+
+.footer .contact {
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+}
+.footer p {
+  margin: 0px 10px;
+}
+.footer h6 {
+  color: #274073;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 20px;
+}
+.footer .logo p{
+    padding: 10px 14%;
+}
+.footer .logo{
+    margin-top: 20px;
+}
+
+.footer a:hover{
+    color: #274073;
+}

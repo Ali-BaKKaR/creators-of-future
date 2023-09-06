@@ -83,7 +83,7 @@ function Home() {
           ))}
         </div>
         <div className="red-button">
-          <a href="#">تصفح المزيد من البكجات</a>
+        <Link to={'travel'}>تصفح المزيد من البكجات</Link>
         </div>
       </div>
       <div className="what-do-we-do">
@@ -115,7 +115,7 @@ function Home() {
             <p>هل تحب استكشاف مدن وحضارات ذات طابع معماري فريد ؟</p>
             <p>هل تود التعرف على ثقافات ولغات جديدة؟</p>
             <div className="small-red-button">
-              <a href="#">تواصل معنا</a>
+              <Link to={'contact-us'}>تواصل معنا</Link>
             </div>
           </div>
         </div>

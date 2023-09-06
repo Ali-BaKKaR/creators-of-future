@@ -56,14 +56,14 @@ function MyNavbar() {
             </Link>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
-              About
-            </a>
+          <Link onClick={navchange} to={"about-us"}>
+              من نحن
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
-              Contact
-            </a>
+          <Link onClick={navchange} to={"contact-us"}>
+           تواصل معنا
+            </Link>
           </li>
         </ul>
         <img alt=" " src="/assets/images/logo.png" height={70}></img>

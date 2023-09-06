@@ -90,6 +90,9 @@ a {
   bottom: 0;
   transition: bottom 0.2s ease;
 }
+.navbar ul{
+  list-style: none;
+}
 
 .hamburger-button {
   /* text-align: -webkit-left; */

@@ -85,7 +85,6 @@ h6 {
 
 .red-button:hover {
   box-shadow: #d91438 0px 0px 8px;
-  border: 1px solid #d3d5d891;
 }
 
 .red-button a {
@@ -107,7 +106,7 @@ h6 {
 }
 
 .small-red-button:hover {
-  background-color: #274073;
+  box-shadow: #d91438 0px 0px 8px;
 }
 
 .small-red-button a {
