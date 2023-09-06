@@ -90,7 +90,7 @@ function CourseDetails() {
                       src="/assets/icons/mobile-signal-icon.png"
                     />
                   </div>
-                  <div>
+                  <div className="course-info-details">
                     <h6>ساعات الدوام</h6>
                     <p>{course.hours} ساعة</p>
                   </div>
@@ -103,8 +103,8 @@ function CourseDetails() {
                       src="/assets/icons/male-icon.png"
                     />
                   </div>
-                  <div>
-                    <h6>الحد الادنى للعمر</h6>
+                  <div className="course-info-details">
+                    <h6>العمر المطلوب</h6>
                     <p>{course.age} سنة</p>
                   </div>
                 </div>
@@ -116,7 +116,7 @@ function CourseDetails() {
                       src="/assets/icons/project-icon.png"
                     />
                   </div>
-                  <div>
+                  <div className="course-info-details">
                     <h6>مستوى اللغة</h6>
                     <p>{course.level}</p>
                   </div>

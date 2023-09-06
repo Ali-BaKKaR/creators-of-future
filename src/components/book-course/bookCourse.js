@@ -48,7 +48,7 @@ function BookCourse(props) {
       <form onSubmit={handleSubmit}>
         <div className="container">
           <div className="row">
-            <div className="col-4">
+            <div className="col-12 col-sm-12 col-md-4">
               <h6>الاسم: </h6>
               <input
                 type="text"
@@ -61,7 +61,7 @@ function BookCourse(props) {
               />
               <br />
             </div>
-            <div className="col-4">
+            <div className="col-12 col-sm-12 col-md-4">
               <h6>البريد الاكتروني:</h6>
               <input
                 type="email"
@@ -74,7 +74,7 @@ function BookCourse(props) {
               />
               <br />
             </div>
-            <div className="col-4">
+            <div className="col-12 col-sm-12 col-md-4">
               <h6>رقم الهاتف : </h6>
               <input
                 type="number"
@@ -87,10 +87,10 @@ function BookCourse(props) {
               />
               <br />
             </div>
-            <div className="col-12">
+            <div className="col-12 col-sm-12">
               <h6>الملاحظات : </h6>
             </div>
-            <div className="col-12">
+            <div className="col-12 col-sm-12">
               <textarea
                 id="message"
                 name="message"

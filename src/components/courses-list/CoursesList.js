@@ -207,7 +207,7 @@ function CourseList() {
 
 function RenderCourse(props) {
   return (
-    <div className=" col-md-4">
+    <div className="col-sm-6 col-md-4">
       <div className="courses-list">
         <Link to={"/courseDetails/" + props.course.id}>
           <img alt=" " width="100%" src={props.course.image_link} />
