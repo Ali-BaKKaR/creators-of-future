@@ -1,13 +1,19 @@
 import "./study.css";
 import { supabase } from "../../client";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Study() {
+  const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
   const [countries, setCountries] = useState([]);
   const [cities, setCities] = useState([]);
   const [weeks, setWeeks] = useState([]);
+  const [formData, setFormData] = useState({
+    country: "",
+    city: "",
+    weeks: null,
+  });
 
   useEffect(() => {
     getCourses();
@@ -52,10 +58,13 @@ function Study() {
     handler.value = "";
     if (document.getElementById("please-select-country") != null)
       document.getElementById("please-select-country").remove();
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
   }
 
   function handleCityChange(event) {
-    console.log("change");
     getWeeks(
       document.getElementById("select-country").value,
       event.target.value
@@ -64,6 +73,21 @@ function Study() {
     handler.value = "";
     if (document.getElementById("please-select-city") != null)
       document.getElementById("please-select-city").remove();
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  function handleWeeksChange(event) {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  function handleSubmit() {
+    navigate("/courses", { state: formData });
   }
 
   return (
@@ -75,8 +99,12 @@ function Study() {
         </div>
       </div>
       <div className="search-course">
-        <form>
-          <select id="select-country" onChange={handleCountryChange}>
+        <form onSubmit={handleSubmit}>
+          <select
+            name="country"
+            id="select-country"
+            onChange={handleCountryChange}
+          >
             <option value="" disabled selected hidden>
               الدولة
             </option>
@@ -87,7 +115,7 @@ function Study() {
                 <option value={e}> {e}</option>
               ))}
           </select>
-          <select id="select-city" onChange={handleCityChange}>
+          <select name="city" id="select-city" onChange={handleCityChange}>
             <option value="" selected hidden>
               المدينة
             </option>
@@ -102,7 +130,7 @@ function Study() {
                 <option value={e}> {e}</option>
               ))}
           </select>
-          <select id="select-weeks">
+          <select name="weeks" onChange={handleWeeksChange} id="select-weeks">
             <option id="please-select-city" disabled>
               يرجى اختيار المدينة والدولة اولا
             </option>

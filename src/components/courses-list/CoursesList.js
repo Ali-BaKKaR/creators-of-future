@@ -1,16 +1,22 @@
 import "./courses-list.css";
 import { useEffect, useState } from "react";
 import { supabase } from "../../client";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { isEmpty } from "lodash";
 
 function CourseList() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [courses, setCourses] = useState([]);
   const [searchValues, setSearchValues] = useState([]);
   const [cities, setCities] = useState([]);
 
   useEffect(() => {
-    getCourses();
+    if (isEmpty(location.state)) getCourses();
+    else listPageSearch();
     getSearchValues();
+    navigate(".", { state: {} });
 
     var coll = document.getElementsByClassName("collapsible");
     var i;
@@ -28,6 +34,33 @@ function CourseList() {
     let noCourses = document.getElementById("no-courses");
     if (noCourses !== null) noCourses.style.opacity = "0";
   }, []);
+
+  async function listPageSearch() {
+    if (isEmpty(location.state)) {
+      console.log(location.state.country);
+    } else {
+      let courses;
+      const { data } = await supabase.from("courses").select();
+      courses = data;
+      if (location.state.country) {
+        courses = courses.filter(
+          (item) => item.country === location.state.country
+        );
+      }
+
+      if (location.state.city)
+        courses = courses.filter((item) => item.city === location.state.city);
+      if (location.state.weeks)
+        courses = courses.filter(
+          (item) => item.weeks === parseInt(location.state.weeks)
+        );
+      console.log(courses);
+      setCourses(courses);
+
+      let noCourses = document.getElementById("no-courses");
+      if (noCourses !== null) noCourses.style.display = "block";
+    }
+  }
 
   async function getCourses() {
     const { data } = await supabase.from("courses").select();
