@@ -2,15 +2,21 @@ import "./courses-list.css";
 import { useEffect, useState } from "react";
 import { supabase } from "../../client";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import ResponsivePagination from "react-responsive-pagination";
 import { isEmpty } from "lodash";
 
 function CourseList() {
+  let numberOfCoursesInPage = 9;
   const location = useLocation();
   const navigate = useNavigate();
 
   const [courses, setCourses] = useState([]);
   const [searchValues, setSearchValues] = useState([]);
   const [cities, setCities] = useState([]);
+
+  const totalPages = Math.ceil(courses.length / numberOfCoursesInPage); //pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [showedCourses, setShowedCourses] = useState([]);
 
   useEffect(() => {
     if (isEmpty(location.state)) getCourses();
@@ -65,6 +71,14 @@ function CourseList() {
   async function getCourses() {
     const { data } = await supabase.from("courses").select();
     setCourses(data);
+    if (isEmpty(showedCourses)) {
+      setShowedCourses(
+        data.slice(
+          (currentPage - 1) * numberOfCoursesInPage,
+          currentPage * numberOfCoursesInPage
+        )
+      );
+    }
   }
 
   async function getCities(country) {
@@ -127,10 +141,31 @@ function CourseList() {
         (item) => item.weeks === parseInt(selectWeeks.value)
       );
 
+    setCurrentPage(1);
     setCourses(courses);
+    setShowedCourses(
+      courses.slice(
+        // 1 is used insted of current page because of error
+        (1 - 1) * numberOfCoursesInPage,
+        1 * numberOfCoursesInPage
+        // (currentPage - 1) * numberOfCoursesInPage,
+        // currentPage * numberOfCoursesInPage
+      )
+    );
 
     let noCourses = document.getElementById("no-courses");
     if (noCourses !== null) noCourses.style.display = "block";
+  }
+
+  function handlePageChange(page) {
+    setCurrentPage(page);
+    // ... do something with `page`
+    let showedcourses;
+    showedcourses = courses.slice(
+      (page - 1) * numberOfCoursesInPage,
+      page * numberOfCoursesInPage
+    );
+    setShowedCourses(showedcourses);
   }
 
   return (
@@ -224,13 +259,18 @@ function CourseList() {
           <div className="col-md-9">
             <div className="row">
               {courses.length > 0 ? (
-                courses.map((course) => (
+                showedCourses.map((course) => (
                   <RenderCourse course={course}></RenderCourse>
                 ))
               ) : (
                 <h4 id="no-courses">عذرا لا يوجد نتائج للبحث</h4>
               )}
             </div>
+            <ResponsivePagination
+              total={totalPages}
+              current={currentPage}
+              onPageChange={(page) => handlePageChange(page)}
+            />
           </div>
         </div>
       </div>

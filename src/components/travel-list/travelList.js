@@ -3,14 +3,23 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../client";
 import { Link } from "react-router-dom";
 import "./travelList.css";
+import ResponsivePagination from "react-responsive-pagination";
+import { isEmpty } from "lodash";
 
 function TravelList() {
+  let numberOfTravelsInPage = 9;
+  
   const [travels, settravels] = useState([]);
   const [searchValues, setSearchValues] = useState([]);
+
+  const totalPages = Math.ceil(travels.length / numberOfTravelsInPage); //pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [showedTravels, setShowedTravels] = useState([]);
+
+  ////end of pagination
   useEffect(() => {
     getTravels();
     getSearchValues();
-
     var coll = document.getElementsByClassName("collapsible");
     var i;
     for (i = 0; i < coll.length; i++) {
@@ -35,6 +44,14 @@ function TravelList() {
       .select()
       .order("create_date", { ascending: false });
     settravels(data);
+    if (isEmpty(showedTravels)) {
+      setShowedTravels(
+        data.slice(
+          (currentPage - 1) * numberOfTravelsInPage,
+          currentPage * numberOfTravelsInPage
+        )
+      );
+    }
   }
 
   async function getSearchValues() {
@@ -73,10 +90,31 @@ function TravelList() {
         (item) => item.duration === parseInt(selectDuration.value)
       );
     console.log(travels);
+    setCurrentPage(1);
     settravels(travels);
+    setShowedTravels(
+      travels.slice(
+        // 1 is used insted of current page because of error
+        (1 - 1) * numberOfTravelsInPage,
+        1 * numberOfTravelsInPage
+        // (currentPage - 1) * numberOfTravelsInPage,
+        // currentPage * numberOfTravelsInPage
+      )
+    );
 
     let noTravel = document.getElementById("no-travel");
     if (noTravel !== null) noTravel.style.display = "block";
+  }
+
+  function handlePageChange(page) {
+    setCurrentPage(page);
+    // ... do something with `page`
+    let showedtravels;
+    showedtravels = travels.slice(
+      (page - 1) * numberOfTravelsInPage,
+      page * numberOfTravelsInPage
+    );
+    setShowedTravels(showedtravels);
   }
 
   return (
@@ -140,7 +178,7 @@ function TravelList() {
           <div className="col-md-9">
             <div className="row">
               {travels.length > 0 ? (
-                travels.map((travel) => (
+                showedTravels.map((travel) => (
                   <div className="col-4">
                     <RenderTravel travel={travel}></RenderTravel>
                   </div>
@@ -149,6 +187,11 @@ function TravelList() {
                 <h4 id="no-travel">عذرا لا يوجد نتائج للبحث</h4>
               )}
             </div>
+            <ResponsivePagination
+              total={totalPages}
+              current={currentPage}
+              onPageChange={(page) => handlePageChange(page)}
+            />
           </div>
         </div>
       </div>

@@ -6,6 +6,16 @@
   font-family: "Tajawal";
   text-align: center;
 }
+.pagination{
+  margin: 20px;
+}
+.page-item.active .page-link{
+  background-color: #274073;
+  border: #274073;
+}
+.page-link{
+  color: #274073;
+}
 
 body {
   background-color: #f7f9fa;
