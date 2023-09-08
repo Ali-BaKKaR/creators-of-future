@@ -33,3 +33,19 @@
   margin: 30px 90px;
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .about-us h4{
+    margin: 10px;
+  }
+  .about-us h6{
+    margin: 30px 20px;
+  }
+  .about-us p{
+    margin: 20px 20px;
+  }
+
+  .about-us h5{
+    margin: 10px 20px;
+  }
+}

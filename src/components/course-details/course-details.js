@@ -244,35 +244,35 @@ function CourseDetails() {
                   {e.type} - {e.price} ر.س
                 </h5>
               </div>
-              <div className="col-6 col-md-2">
+              <div className="col-6 col-sm-4 col-md-2">
                 <FaHouseChimney size={30} color="#274073"></FaHouseChimney>
                 <div className="home-description">
                   <h6>نوع السكن</h6>
                   <p>{e.type}</p>
                 </div>
               </div>
-              <div className="col-6 col-md-2">
+              <div className="col-6 col-sm-4 col-md-2">
                 <FaUserLarge size={30} color="#274073"></FaUserLarge>
                 <div className="home-description">
                   <h6>العمر</h6>
                   <p>{e.age}</p>
                 </div>
               </div>
-              <div className="col-6 col-md-2">
+              <div className="col-6 col-sm-4 col-md-2">
                 <FaBed size={30} color="#274073"></FaBed>
                 <div className="home-description">
                   <h6>نوع الغرفة</h6>
                   <p>{e.room_type}</p>
                 </div>
               </div>
-              <div className="col-6 col-md-2">
+              <div className="col-6 col-sm-4 col-md-2">
                 <GiMeal size={30} color="#274073"></GiMeal>
                 <div className="home-description">
                   <h6>الوجبات</h6>
                   <p>{e.meals}</p>
                 </div>
               </div>
-              <div className="col-6 col-md-2">
+              <div className="col-6 col-sm-4 col-md-2">
                 <FaBath size={30} color="#274073"></FaBath>
                 <div className="home-description">
                   <h6>الحمام</h6>

@@ -71,7 +71,7 @@
   text-align: right;
   margin: 10px auto;
 }
-.booking h6{
+.booking h6 {
   margin: 10px auto;
 }
 .booking button {
@@ -85,7 +85,7 @@
   transition: 0.5s;
   width: 100%;
 }
-.booking select{
+.booking select {
   width: 100%;
   margin: 0px;
   margin-bottom: 10px;
@@ -236,42 +236,47 @@ input[type="date"]:hover {
   padding-bottom: 5px;
 }
 
-@media (max-width:425px) {
-  .info{
+@media (max-width: 425px) {
+  .info {
     margin: 20px 0px;
   }
-  .info .course-info-details h6{
+  .info .course-info-details h6 {
     font-size: 14px;
   }
-  .info img{
+  .info img {
     width: 20px;
     height: 20px;
   }
-  .info .course-info-details p{
+  .info .course-info-details p {
     font-size: 10px;
   }
-  .info .course-discription{
+  .info .course-discription {
     margin: 10px auto;
   }
-  
 }
 
-@media (max-width:768px) {
-
-  .info{
+@media (max-width: 768px) {
+  .info {
     margin: 20px 0px;
   }
-  .info .course-info-details h6{
+  .info .course-info-details h6 {
     font-size: 18px;
   }
-  .info img{
+  .info img {
     width: 20px;
     height: 20px;
   }
-  .info .course-info-details p{
+  .info .course-info-details p {
     font-size: 16px;
   }
-  .info .course-discription{
+  .info .course-discription {
     margin: 10px auto;
+  }
+
+  .home-options p {
+    font-size: 13px;
+  }
+  .home-options h6 {
+    font-size: 15px;
   }
 }

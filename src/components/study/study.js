@@ -91,7 +91,7 @@ function Study() {
   }
 
   return (
-    <div>
+    <div className="study-page">
       <div className="main study-background">
         <div className="welcome-title ">
           <h3>نوفر لك</h3>
@@ -150,7 +150,7 @@ function Study() {
       <div className="services">
         <div className="container">
           <div className="row">
-            <div className="col-md-3">
+            <div className="col-md-3 col-6">
               <img
                 alt=""
                 width="60"
@@ -159,7 +159,7 @@ function Study() {
               />
               <h5>الاقامة</h5>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-3 col-6">
               <img
                 alt=""
                 width="60"
@@ -168,7 +168,7 @@ function Study() {
               />
               <h5>تأمين السكن</h5>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-3 col-6">
               <img
                 alt=""
                 width="60"
@@ -177,7 +177,7 @@ function Study() {
               />
               <h5>مستشار دائم</h5>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-3 col-6">
               <img
                 alt=""
                 width="60"
@@ -208,10 +208,14 @@ function RenderIntroCourse(props) {
       <div className=" study-program container-fluid">
         <div className="row">
           <div className="col-md-4">
-            <img alt=" " src={props.course.image_link} />
+            <Link to={"/courseDetails/" + props.course.id}>
+              <img alt=" " src={props.course.image_link} />
+            </Link>
           </div>
           <div className="col-md-8">
-            <h5 className="institution-name">{props.course.name}</h5>
+            <Link to={"/courseDetails/" + props.course.id}>
+              <h5 className="institution-name">{props.course.name}</h5>
+            </Link>
             <h5 className="institution-header">
               {props.course.country}{" "}
               <img alt=" " src="assets/icons/map-pin-icon.png" />
@@ -225,11 +229,16 @@ function RenderIntroCourse(props) {
                 <p key={index}>{item}</p>
               ))}
             </p>
-            <Link to={"/courseDetails/" + props.course.id}>
-              <a className="red-button" href="#">
+            <div className="course-button">
+              <div></div>
+              {/* spacer */}
+              <Link
+                to={"/courseDetails/" + props.course.id}
+                className="small-red-button"
+              >
                 عرض كل التفاصيل
-              </a>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

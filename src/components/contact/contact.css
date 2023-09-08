@@ -54,3 +54,12 @@
       color: #274073;
       margin: 20px;
   }
+
+
+  @media (max-width: 768px) {
+    .contact-us{
+      margin: 0px;
+      padding: 0px;
+      
+    }
+  }

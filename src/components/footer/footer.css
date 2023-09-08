@@ -52,6 +52,7 @@
   .footer .contact{
     /* align-items: center; */
     justify-content: space-between;
+    padding: 0px;
   }
   .footer .contact p{
     text-align: left;

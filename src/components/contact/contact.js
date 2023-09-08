@@ -37,7 +37,7 @@ export default function Contact() {
       <div className="container">
         <h4>تواصل معنا</h4>
         <div className="row">
-          <div className="col-6">
+          <div className="col-12 col-md-6">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3709.1032291768915!2d39.147956374388485!3d21.62090076717937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3db3fc960d401%3A0x311b0c5dfc0f350!2z2YXZg9iq2Kgg2YTZhNiz2YrYp9it2Kkg2YjYp9mE2LPZgdix!5e0!3m2!1sen!2suk!4v1693933139184!5m2!1sen!2suk"
               allowfullscreen=""
@@ -45,7 +45,7 @@ export default function Contact() {
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-          <div className="col-6">
+          <div className="col-12 col-md-6">
             {" "}
             <form onSubmit={handleSubmit}>
               <div className="container">

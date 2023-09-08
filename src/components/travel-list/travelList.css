@@ -61,6 +61,12 @@
   box-shadow: #274073 0px 0px 8px;
 
 }
+
+@media (max-width: 768px) {
+  #search-course .collapsible{
+    font-size: 18px;
+  }
+}
 /* 
 #no-travel{
     display: none;

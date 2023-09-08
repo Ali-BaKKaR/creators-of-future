@@ -78,7 +78,7 @@ a {
 }
 
 .nav-branding a {
-  margin: 20px;
+  margin: 8px;
 }
 
 .nav-link {
@@ -150,11 +150,14 @@ a {
 @media (max-width: 768px) {
   .nav-branding a {
     font-size: 15px;
-    margin: 7px;
+    margin: 4px;
   }
 }
 
 @media (max-width: 425px) {
+  #mobile-logo{
+    display: block;
+  }
   .top-nav {
     display: none;
   }

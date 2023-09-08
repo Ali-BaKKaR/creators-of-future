@@ -179,7 +179,7 @@ function TravelList() {
             <div className="row">
               {travels.length > 0 ? (
                 showedTravels.map((travel) => (
-                  <div className="col-4">
+                  <div className="col-md-4 col-sm-6 col-12">
                     <RenderTravel travel={travel}></RenderTravel>
                   </div>
                 ))
