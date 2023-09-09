@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./navbar.css";
 
 function MyNavbar() {
@@ -24,11 +24,8 @@ function MyNavbar() {
     <header>
       <div className="top-nav">
         <div className="social-media">
-          <a href="#">
+          <a href="https://instagram.com/cof_travel/">
             <img alt=" " src="/assets/icons/instagram.svg" />
-          </a>
-          <a href="#">
-            <img alt=" " src="/assets/icons/map-pin.svg" />
           </a>
         </div>
         <div className="mail-and-phone">
@@ -40,33 +37,35 @@ function MyNavbar() {
       </div>
       <nav className={navbarClasses.join(" ")}>
         <div className="nav-branding">
-          <Link to="/">السياحة و السفر</Link>
-          <Link to="/study"> التعلم بالخارج</Link>
+          <NavLink to="/">السياحة و السفر</NavLink>
+          <NavLink to="/study"> التعلم بالخارج</NavLink>
         </div>
         <ul className="nav-menu">
-          <img alt=" " src="/assets/images/logo.png" height={70}></img>
+          <div id="mobile-logo">
+            <img alt=" " src="/assets/images/logo.png" height={70}></img>
+          </div>
           <li className="nav-item">
-            <Link onClick={navchange} to={"courses"}>
+            <NavLink onClick={navchange} to={"courses"}>
               الكورسات
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link onClick={navchange} to={"travel"}>
+            <NavLink onClick={navchange} to={"travel"}>
               الرحلات السياحية
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-          <Link onClick={navchange} to={"about-us"}>
+            <NavLink onClick={navchange} to={"about-us"}>
               من نحن
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-          <Link onClick={navchange} to={"contact-us"}>
-           تواصل معنا
-            </Link>
+            <NavLink onClick={navchange} to={"contact-us"}>
+              تواصل معنا
+            </NavLink>
           </li>
         </ul>
-        <img alt=" " src="/assets/images/logo.png" height={70}></img>
+        <img id="logo" alt=" " src="/assets/images/logo.png" height={70}></img>
         <div className="hamburger">
           <div className="hamburger-button" onClick={navchange}>
             <span className="bar"></span>

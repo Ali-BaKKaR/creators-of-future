@@ -46,7 +46,7 @@ function CourseList() {
       console.log(location.state.country);
     } else {
       let courses;
-      const { data } = await supabase.from("courses").select();
+      const { data } = await supabase.from("courses").select().order("create_date", { ascending: false });
       courses = data;
       if (location.state.country) {
         courses = courses.filter(
@@ -69,7 +69,7 @@ function CourseList() {
   }
 
   async function getCourses() {
-    const { data } = await supabase.from("courses").select();
+    const { data } = await supabase.from("courses").select().order("create_date", { ascending: false });
     setCourses(data);
     if (isEmpty(showedCourses)) {
       setShowedCourses(
@@ -123,10 +123,10 @@ function CourseList() {
       const { data } = await supabase
         .from("courses")
         .select()
-        .textSearch("name", selectName.value);
+        .textSearch("name", selectName.value).order("create_date", { ascending: false });
       courses = data;
     } else {
-      const { data } = await supabase.from("courses").select();
+      const { data } = await supabase.from("courses").select().order("create_date", { ascending: false });
       courses = data;
     }
 
@@ -166,6 +166,8 @@ function CourseList() {
       page * numberOfCoursesInPage
     );
     setShowedCourses(showedcourses);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   }
 
   return (

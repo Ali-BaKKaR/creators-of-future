@@ -1,5 +1,10 @@
 .study-background {
-  background-image: url("/public/assets/images/study.png");
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url("/public/assets/images/study.png");
   background-size: cover;
   /* mask-image: linear-gradient(1,2,3); */
 }
@@ -136,18 +141,17 @@ input[type="submit"]:hover {
   justify-content: space-between;
 }
 
-.course-button .small-red-button{
-    width: fit-content;
-    color: white;
-    background-color: #274073;
-    font-weight: normal;
-    font-size: 16px;
-    margin: 15px;
-  
+.course-button .small-red-button {
+  width: fit-content;
+  color: white;
+  background-color: #274073;
+  font-weight: normal;
+  font-size: 16px;
+  margin: 15px;
 }
 
-.course-button .small-red-button:hover{
-    box-shadow: #274073 0px 0px 8px;
+.course-button .small-red-button:hover {
+  box-shadow: #274073 0px 0px 8px;
 }
 
 @media (max-width: 768px) {

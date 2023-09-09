@@ -73,10 +73,10 @@ function TravelList() {
       const { data } = await supabase
         .from("travels")
         .select()
-        .textSearch("name", selectName.value);
+        .textSearch("name", selectName.value).order("create_date", { ascending: false });
       travels = data;
     } else {
-      const { data } = await supabase.from("travels").select();
+      const { data } = await supabase.from("travels").select().order("create_date", { ascending: false });
       travels = data;
     }
 
@@ -115,6 +115,8 @@ function TravelList() {
       page * numberOfTravelsInPage
     );
     setShowedTravels(showedtravels);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   }
 
   return (
