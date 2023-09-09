@@ -46,7 +46,10 @@ function CourseList() {
       console.log(location.state.country);
     } else {
       let courses;
-      const { data } = await supabase.from("courses").select().order("create_date", { ascending: false });
+      const { data } = await supabase
+        .from("courses")
+        .select()
+        .order("create_date", { ascending: false });
       courses = data;
       if (location.state.country) {
         courses = courses.filter(
@@ -65,11 +68,20 @@ function CourseList() {
 
       let noCourses = document.getElementById("no-courses");
       if (noCourses !== null) noCourses.style.display = "block";
+       setShowedCourses(
+        courses.slice(
+          (currentPage - 1) * numberOfCoursesInPage,
+          currentPage * numberOfCoursesInPage
+        )
+      );
     }
   }
 
   async function getCourses() {
-    const { data } = await supabase.from("courses").select().order("create_date", { ascending: false });
+    const { data } = await supabase
+      .from("courses")
+      .select()
+      .order("create_date", { ascending: false });
     setCourses(data);
     if (isEmpty(showedCourses)) {
       setShowedCourses(
@@ -123,10 +135,14 @@ function CourseList() {
       const { data } = await supabase
         .from("courses")
         .select()
-        .textSearch("name", selectName.value).order("create_date", { ascending: false });
+        .textSearch("name", selectName.value)
+        .order("create_date", { ascending: false });
       courses = data;
     } else {
-      const { data } = await supabase.from("courses").select().order("create_date", { ascending: false });
+      const { data } = await supabase
+        .from("courses")
+        .select()
+        .order("create_date", { ascending: false });
       courses = data;
     }
 
@@ -166,8 +182,7 @@ function CourseList() {
       page * numberOfCoursesInPage
     );
     setShowedCourses(showedcourses);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (
