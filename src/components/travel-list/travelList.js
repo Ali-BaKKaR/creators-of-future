@@ -1,21 +1,29 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { supabase } from "../../client";
 import { Link } from "react-router-dom";
 import "./travelList.css";
 import ResponsivePagination from "react-responsive-pagination";
-import { isEmpty } from "lodash";
 
 function TravelList() {
   let numberOfTravelsInPage = 9;
-  
-  const [travels, settravels] = useState([]);
-  const [searchValues, setSearchValues] = useState([]);
 
-  const totalPages = Math.ceil(travels.length / numberOfTravelsInPage); //pagination
+  const [searchValues, setSearchValues] = useState([]);
+  const nameRef = useRef();
+  const destinationRef = useRef();
+  const durationRef = useRef();
+
+  const [formData, setFormData] = useState({
+    name: "",
+    destination: "",
+    duration: "",
+  });
+
+  // const totalPages = Math.ceil(travels.length / numberOfTravelsInPage); //pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [showedTravels, setShowedTravels] = useState([]);
-
+  const [totalPages, setTotalPages] = useState([]);
+  const [searched, setSearched] = useState([false]);
   ////end of pagination
   useEffect(() => {
     getTravels();
@@ -39,19 +47,17 @@ function TravelList() {
   }, []);
 
   async function getTravels() {
-    const { data } = await supabase
+    const { data, count } = await supabase
       .from("travels")
-      .select()
-      .order("create_date", { ascending: false });
-    settravels(data);
-    if (isEmpty(showedTravels)) {
-      setShowedTravels(
-        data.slice(
-          (currentPage - 1) * numberOfTravelsInPage,
-          currentPage * numberOfTravelsInPage
-        )
+      .select("id,name,destination,description,image_link", { count: "exact" })
+      .order("create_date", { ascending: false })
+      .range(
+        (currentPage - 1) * numberOfTravelsInPage,
+        currentPage * numberOfTravelsInPage - 1
       );
-    }
+
+    setTotalPages(Math.ceil(count / numberOfTravelsInPage));
+    setShowedTravels(data);
   }
 
   async function getSearchValues() {
@@ -62,65 +68,98 @@ function TravelList() {
     setSearchValues(data);
   }
 
-  async function search() {
+  async function search(page) {
     let selectName = document.getElementById("search-name");
     let selectDestination = document.getElementById("select-destination");
     let selectDuration = document.getElementById("select-duration");
 
-    let travels;
-
-    if (selectName.value !== "") {
-      const { data } = await supabase
-        .from("travels")
-        .select()
-        .textSearch("name", selectName.value).order("create_date", { ascending: false });
-      travels = data;
-    } else {
-      const { data } = await supabase.from("travels").select().order("create_date", { ascending: false });
-      travels = data;
-    }
+    let query = supabase
+      .from("travels")
+      .select("id,name,destination,description,image_link", { count: "exact" })
+      .order("create_date", { ascending: false })
+      .range(
+        (page - 1) * numberOfTravelsInPage,
+        page * numberOfTravelsInPage - 1
+      );
+    if (selectName.value !== "") query.textSearch("name", selectName.value);
 
     if (selectDestination.value !== "")
-      travels = travels.filter(
-        (item) => item.destination === selectDestination.value
-      );
+      query.eq("destination", selectDestination.value);
 
-    if (selectDuration.value !== "")
-      travels = travels.filter(
-        (item) => item.duration === parseInt(selectDuration.value)
-      );
-    console.log(travels);
-    setCurrentPage(1);
-    settravels(travels);
-    setShowedTravels(
-      travels.slice(
-        // 1 is used insted of current page because of error
-        (1 - 1) * numberOfTravelsInPage,
-        1 * numberOfTravelsInPage
-        // (currentPage - 1) * numberOfTravelsInPage,
-        // currentPage * numberOfTravelsInPage
-      )
-    );
+    if (selectDuration.value !== "") query.eq("duration", selectDuration.value);
+
+    const { data, count } = await query;
+    setCurrentPage(page);
+    setTotalPages(Math.ceil(count / numberOfTravelsInPage));
+    setShowedTravels(data);
+    setSearched(true);
 
     let noTravel = document.getElementById("no-travel");
     if (noTravel !== null) noTravel.style.display = "block";
   }
 
-  function handlePageChange(page) {
+  async function handlePageChange(page) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setCurrentPage(page);
-    // ... do something with `page`
-    let showedtravels;
-    showedtravels = travels.slice(
-      (page - 1) * numberOfTravelsInPage,
-      page * numberOfTravelsInPage
-    );
-    setShowedTravels(showedtravels);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
+    if (searched) {
+      let query = supabase
+        .from("travels")
+        .select("id,name,destination,description,image_link")
+        .order("create_date", { ascending: false })
+        .range(
+          (page - 1) * numberOfTravelsInPage,
+          page * numberOfTravelsInPage - 1
+        );
+
+      if (formData.name !== '') query.textSearch("name", formData.name);
+
+      if (formData.destination !== '')
+        query.eq("destination", formData.destination);
+
+      if (formData.duration !== null) query.eq("duration", formData.duration);
+
+      const { data } = await query;
+      console.log(data);
+      setShowedTravels(data);
+    } else {
+      const { data } = await supabase
+        .from("travels")
+        .select("id,name,destination,description,image_link")
+        .order("create_date", { ascending: false })
+        .range(
+          (page - 1) * numberOfTravelsInPage,
+          page * numberOfTravelsInPage - 1
+        );
+      setShowedTravels(data);
+    }
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newFormData = new FormData(event.target);
+    setFormData({
+      name: newFormData.get("name"),
+      destination: newFormData.get("destination"),
+      duration: newFormData.get("duration"),
+    });
+  };
+
+  async function ali() {
+    let query = supabase
+      .from("travels")
+      .select("*", { count: "exact" })
+      .range(0, 2);
+    // query.eq("city", "نيو دلهي");
+    query.eq("id", 3);
+    const { data, count } = await query;
+    console.log(data);
+    console.log(formData);
   }
 
   return (
     <div className="travel-list">
+      <button onClick={ali}>aldjlaisjdilasj</button>
       <div className="list-header">
         <h4>الرحلات السياحية </h4>
         <h5>
@@ -134,52 +173,67 @@ function TravelList() {
             <div id="search-course">
               <button class="collapsible">البحث عن رحلة</button>
               <div class="content">
-                <label for="search-name">ابحث عن اسم المعهد</label>
-                <input
-                  id="search-name"
-                  type="text"
-                  placeholder="بحث...."
-                ></input>
-                <label for="select-destination">الوجهة</label>
-                <select id="select-destination">
-                  <option value="" disabled selected hidden>
-                    اختر الوجهة
-                  </option>
-                  {searchValues
-                    .map((e) => e.destination)
-                    .filter(
-                      (value, index, self) => self.indexOf(value) === index
-                    ) // getting only uniqe values
-                    .map((e) => (
-                      <option value={e}> {e}</option>
-                    ))}
-                </select>
+                <form onSubmit={handleSubmit}>
+                  <label for="search-name">ابحث عن اسم الرحلة</label>
+                  <input
+                    id="search-name"
+                    type="text"
+                    name="name"
+                    ref={nameRef}
+                    placeholder="بحث...."
+                  ></input>
+                  <label for="select-destination">الوجهة</label>
+                  <select
+                    ref={destinationRef}
+                    id="select-destination"
+                    name="destination"
+                  >
+                    <option value="" disabled selected hidden>
+                      اختر الوجهة
+                    </option>
+                    {searchValues
+                      .map((e) => e.destination)
+                      .filter(
+                        (value, index, self) => self.indexOf(value) === index
+                      ) // getting only uniqe values
+                      .map((e) => (
+                        <option value={e}> {e}</option>
+                      ))}
+                  </select>
 
-                <label for="select-duration"> المدة</label>
-                <select id="select-duration">
-                  <option value="" selected hidden disabled>
-                    اختر مدة الرحلة
-                  </option>
-                  {searchValues
-                    .map((e) => e.duration)
-                    .filter(
-                      (value, index, self) => self.indexOf(value) === index
-                    ) // getting only uniqe values
-                    .sort((a, b) => a - b)
-                    .map((e) => (
-                      <option value={e}> {e} اسبوع</option>
-                    ))}
-                </select>
+                  <label for="select-duration"> المدة</label>
+                  <select
+                    ref={durationRef}
+                    id="select-duration"
+                    name="duration"
+                  >
+                    <option value="" selected hidden disabled>
+                      اختر مدة الرحلة
+                    </option>
+                    {searchValues
+                      .map((e) => e.duration)
+                      .filter(
+                        (value, index, self) => self.indexOf(value) === index
+                      ) // getting only uniqe values
+                      .sort((a, b) => a - b)
+                      .map((e) => (
+                        <option value={e}> {e} اسبوع</option>
+                      ))}
+                  </select>
 
-                <button className="search-button" onClick={search}>
-                  بحث
-                </button>
+                  <input
+                    type={"submit"}
+                    value="بحث"
+                    className="search-button"
+                    onClick={() => search(1)}
+                  />
+                </form>
               </div>
             </div>
           </div>
           <div className="col-md-9">
             <div className="row">
-              {travels.length > 0 ? (
+              {showedTravels.length > 0 ? (
                 showedTravels.map((travel) => (
                   <div className="col-md-4 col-sm-6 col-12">
                     <RenderTravel travel={travel}></RenderTravel>
