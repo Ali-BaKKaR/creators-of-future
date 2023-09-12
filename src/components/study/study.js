@@ -13,6 +13,8 @@ function Study() {
     country: "",
     city: "",
     weeks: null,
+    name:"",
+    type:null
   });
 
   useEffect(() => {

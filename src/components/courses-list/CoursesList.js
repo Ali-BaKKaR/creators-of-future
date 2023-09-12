@@ -56,33 +56,47 @@ function CourseList() {
   }, []);
 
   async function listPageSearch() {
-    if (isEmpty(location.state)) {
+    let query = supabase
+      .from("courses")
+      .select("id,name,image_link,type,country,level,age,weeks,price", {
+        count: "exact",
+      })
+      .order("create_date", { ascending: false })
+      .range(0, numberOfCoursesInPage - 1);
+    let selectCountry = document.getElementById("select-country");
+
+    let selectCity = document.getElementById("select-city");
+
+    let selectWeeks = document.getElementById("select-weeks");
+
+    if (location.state.country) {
       console.log(location.state.country);
-    } else {
-      let courses;
-      const { data } = await supabase
-        .from("courses")
-        .select()
-        .order("create_date", { ascending: false });
-      courses = data;
-      if (location.state.country) {
-        courses = courses.filter(
-          (item) => item.country === location.state.country
-        );
-      }
-
-      if (location.state.city)
-        courses = courses.filter((item) => item.city === location.state.city);
-      if (location.state.weeks)
-        courses = courses.filter(
-          (item) => item.weeks === parseInt(location.state.weeks)
-        );
-      console.log(courses);
-      setCourses(courses);
-
-      let noCourses = document.getElementById("no-courses");
-      if (noCourses !== null) noCourses.style.display = "block";
+      query.eq("country", location.state.country);
+      selectCountry.value = location.state.country;
     }
+    if (location.state.city) {
+      query.eq("city", location.state.city);
+      selectCity.value = location.state.city;
+    }
+    if (location.state.weeks) {
+      query.eq("weeks", location.state.weeks);
+      selectWeeks.value = location.state.weeks;
+    }
+
+    const { data, count } = await query;
+    setCurrentPage(1);
+    setTotalPages(Math.ceil(count / numberOfCoursesInPage));
+    setShowedCourses(data);
+    setSearched(true);
+    setFormData({
+      country: location.state.country,
+      city: location.state.city,
+      weeks: location.state.weeks,
+      name:location.state.name,
+      type:location.state.type
+    });
+    let noCourses = document.getElementById("no-courses");
+    if (noCourses !== null) noCourses.style.display = "block";
   }
 
   async function getCourses() {
@@ -183,18 +197,15 @@ function CourseList() {
           page * numberOfCoursesInPage - 1
         );
 
-      // if (formData.name !== "") query.textSearch("name", formData.name);
-      // if (formData.country !== "") query.eq("country", formData.country);
-      // if (formData.city !== "") query.eq("city", formData.city);
-      // if (formData.type !== "") query.eq("type", formData.type);
       console.log(formData);
+      if (formData.name !== "") query.textSearch("name", formData.name);
+      if (formData.country !== "") query.eq("country", formData.country);
+      if (formData.city !== "") query.eq("city", formData.city);
+      if (formData.type !== null) query.eq("type", formData.type);
       if (formData.weeks !== null) {
         query.eq("weeks", formData.weeks);
-        console.log("week search");
       }
       const { data } = await query;
-      console.log(data);
-      console.log(searched);
       setShowedCourses(data);
     } else {
       const { data } = await supabase
@@ -212,6 +223,14 @@ function CourseList() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newFormData = new FormData(event.target);
+
+    setFormData({ //Reset All Values
+      country: "",
+      city: "",
+      weeks: null,
+      name:"",
+      type:null
+    })
 
     setFormData({
       name: newFormData.get("name"),
@@ -389,7 +408,7 @@ function RenderCourse(props) {
               className="courses-list-icon"
               src="/assets/icons/project-icon.png"
             />
-            <p>{props.course.weeks} ساعة</p>
+            <p>{props.course.weeks} اسبوع</p>
           </div>
         </div>
 
