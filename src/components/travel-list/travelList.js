@@ -145,21 +145,9 @@ function TravelList() {
     });
   };
 
-  async function ali() {
-    let query = supabase
-      .from("travels")
-      .select("*", { count: "exact" })
-      .range(0, 2);
-    // query.eq("city", "نيو دلهي");
-    query.eq("id", 3);
-    const { data, count } = await query;
-    console.log(data);
-    console.log(formData);
-  }
 
   return (
     <div className="travel-list">
-      <button onClick={ali}>aldjlaisjdilasj</button>
       <div className="list-header">
         <h4>الرحلات السياحية </h4>
         <h5>
