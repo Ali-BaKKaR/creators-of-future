@@ -15,7 +15,6 @@ function Home() {
       .from("travels")
       .select("name,destination ,city,intro_text,price,id,image_link  ")
       .eq("home_intro", true);
-    console.log(data);
     setTravels(data);
   }
   return (
@@ -37,7 +36,7 @@ function Home() {
                 height="60"
                 src="assets/icons/english-speaking-icon.png"
               />
-              <h5>تعلم الإنكليزية بالخارج</h5>
+              <h5>تعلم الإنجليزية بالخارج</h5>
             </div>
             <div className="col-md-4 col-6 col-sm-4">
               <img alt=" " src="assets/icons/flight-ticket-icon.png" />
@@ -54,7 +53,7 @@ function Home() {
             </div>
             <div className="col-md-4 col-6 col-sm-4">
               <img alt=" " src="assets/icons/passport-ticket-icon.png" />
-              <h5>تأشيرات دخول</h5>
+              <h5>تأشيرات سياحية</h5>
             </div>
             <div className="col-md-4 col-6 col-sm-4">
               <img alt=" " src="assets/icons/adventure-icon.png" />
@@ -88,7 +87,7 @@ function Home() {
       </div>
       <div className="what-do-we-do">
         <h4 id="what-do-we-do-header">ما هو عملنا</h4>
-        <h4>نقوم بإدارة رحلات سياحية وبرامج تعليم اللغة الانكليزية بالخارج </h4>
+        <h4>نقوم بإدارة رحلات سياحية وبرامج تعليم اللغة الانجليزية بالخارج </h4>
         <p>
           نقدم خدماتنا في مجال السفر من اجل السياحة و التعلم ونضمن لك العمل
           بسرعة وجودة عالية

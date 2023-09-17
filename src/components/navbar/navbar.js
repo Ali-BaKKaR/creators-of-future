@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./navbar.css";
 
 function MyNavbar() {
@@ -29,10 +29,17 @@ function MyNavbar() {
           </a>
         </div>
         <div className="mail-and-phone">
-          <p>tempmail@gmail.com</p>
+          <p>info@creators-of-future.com</p>
           <img alt=" " src="/assets/icons/mail.svg" />
-          <p id="phone-number">+92 29 659 4859</p>
+          <p id="phone-number">0558288444</p>
           <img alt=" " src="/assets/icons/phone.svg" />
+        </div>
+      </div>
+      <div id="mobile-top-nav">
+        <div>
+          <Link to="/">
+            <img alt=" " src="/assets/images/logo.png" height={70}></img>
+          </Link>
         </div>
       </div>
       <nav className={navbarClasses.join(" ")}>
@@ -42,7 +49,9 @@ function MyNavbar() {
         </div>
         <ul className="nav-menu">
           <div id="mobile-logo">
-            <img alt=" " src="/assets/images/logo.png" height={70}></img>
+            <Link to="/">
+              <img alt=" " src="/assets/images/logo.png" height={70}></img>
+            </Link>
           </div>
           <li className="nav-item">
             <NavLink onClick={navchange} to={"courses"}>

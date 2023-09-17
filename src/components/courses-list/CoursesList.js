@@ -16,7 +16,6 @@ function CourseList() {
   const cityRef = useRef();
   const weeksRef = useRef();
 
-  const [courses, setCourses] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     country: "",
@@ -30,9 +29,10 @@ function CourseList() {
   const [totalPages, setTotalPages] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [showedCourses, setShowedCourses] = useState([]);
-  const [searched, setSearched] = useState([false]);
+  const [searched, setSearched] = useState();
 
   useEffect(() => {
+    setSearched(false);
     if (isEmpty(location.state)) getCourses();
     else listPageSearch();
     getSearchValues();
@@ -70,7 +70,6 @@ function CourseList() {
     let selectWeeks = document.getElementById("select-weeks");
 
     if (location.state.country) {
-      console.log(location.state.country);
       query.eq("country", location.state.country);
       selectCountry.value = location.state.country;
     }
@@ -92,8 +91,8 @@ function CourseList() {
       country: location.state.country,
       city: location.state.city,
       weeks: location.state.weeks,
-      name:location.state.name,
-      type:location.state.type
+      name: location.state.name,
+      type: location.state.type,
     });
     let noCourses = document.getElementById("no-courses");
     if (noCourses !== null) noCourses.style.display = "block";
@@ -187,7 +186,7 @@ function CourseList() {
     setCurrentPage(page);
     // ... do something with `page`
 
-    if (searched) {
+    if (searched === true) {
       let query = supabase
         .from("courses")
         .select("id,name,image_link,type,country,level,age,weeks,price")
@@ -197,14 +196,17 @@ function CourseList() {
           page * numberOfCoursesInPage - 1
         );
 
-      console.log(formData);
-      if (formData.name !== "") query.textSearch("name", formData.name);
-      if (formData.country !== "") query.eq("country", formData.country);
-      if (formData.city !== "") query.eq("city", formData.city);
-      if (formData.type !== null) query.eq("type", formData.type);
-      if (formData.weeks !== null) {
+      if (formData.name !== "" && formData.name !== null)
+        query.textSearch("name", formData.name);
+      if (formData.country !== "" && formData.country !== null)
+        query.eq("country", formData.country);
+      if (formData.city !== "" && formData.city !== null)
+        query.eq("city", formData.city);
+      if (formData.type !== "" && formData.type !== null)
+        query.eq("type", formData.type);
+      if (formData.weeks !== "" && formData.weeks !== null)
         query.eq("weeks", formData.weeks);
-      }
+
       const { data } = await query;
       setShowedCourses(data);
     } else {
@@ -223,14 +225,16 @@ function CourseList() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newFormData = new FormData(event.target);
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
-    setFormData({ //Reset All Values
+    setFormData({
+      //Reset All Values
       country: "",
       city: "",
       weeks: null,
-      name:"",
-      type:null
-    })
+      name: "",
+      type: null,
+    });
 
     setFormData({
       name: newFormData.get("name"),

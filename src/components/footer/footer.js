@@ -22,22 +22,22 @@ export default function Footer() {
               <h6>روابط مهمة</h6>
               <Link to={"/about-us"}>من نحن</Link>
               <Link to={"/contact-us"}>تواصل معنا</Link>
-              <Link to={"/travels"}>الرحلات السياحية</Link>
+              <Link to={"/travel"}>الرحلات السياحية</Link>
               <Link to={"/courses"}>الدورات التعليمية</Link>
             </div>
             <div className="col-12 col-sm-6 col-md-4">
               <h6>تواصل معنا</h6>
               <div className="contact">
                 <BiPhone size={30} color={"#274073"}></BiPhone>
-                <p>+99 99999</p>
+                <p>0558288444</p>
               </div>
               <div className="contact">
                 <CiMail size={30} color={"#274073"}></CiMail>
-                <p>tempmail@gmail.com</p>
+                <p>info@creators-of-future.com</p>
               </div>
               <div className="contact">
                 <CiLocationOn size={30} color={"#274073"}></CiLocationOn>
-                <p>عنوان,المدينة ,البلد</p>
+                <p>السعودية, جدة, طريق المدينة</p>
               </div>
             </div>
           </div>

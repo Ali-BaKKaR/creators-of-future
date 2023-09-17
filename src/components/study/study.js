@@ -193,7 +193,7 @@ function Study() {
       </div>
       <div className="study-intro ">
         <h2>برامجنا التعليمية</h2>
-        {courses.map((course) => (
+        {courses.slice(0, 4).map((course) => (
           <RenderIntroCourse course={course}></RenderIntroCourse>
         ))}
       </div>

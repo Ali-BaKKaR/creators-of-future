@@ -197,7 +197,6 @@ function CourseDetails() {
                 onClick={() => {
                   if (validateForm()) {
                     setBooking(true);
-                    console.log(courseData);
                   } else alert("يرجى تعبئة جميع الحقول");
                 }}
               >

@@ -23,9 +23,10 @@ function TravelList() {
   const [currentPage, setCurrentPage] = useState(1);
   const [showedTravels, setShowedTravels] = useState([]);
   const [totalPages, setTotalPages] = useState([]);
-  const [searched, setSearched] = useState([false]);
+  const [searched, setSearched] = useState([]);
   ////end of pagination
   useEffect(() => {
+    setSearched(false);
     getTravels();
     getSearchValues();
     var coll = document.getElementsByClassName("collapsible");
@@ -102,25 +103,28 @@ function TravelList() {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setCurrentPage(page);
 
-    if (searched) {
+    if (searched === true) {
       let query = supabase
         .from("travels")
-        .select("id,name,destination,description,image_link")
+        .select("id,name,destination,duration,description,image_link")
         .order("create_date", { ascending: false })
         .range(
           (page - 1) * numberOfTravelsInPage,
           page * numberOfTravelsInPage - 1
         );
 
-      if (formData.name !== '') query.textSearch("name", formData.name);
+      if (formData.name !== null && formData.name !== "")
+        query.textSearch("name", formData.name);
 
-      if (formData.destination !== '')
+      if (formData.destination !== null && formData.destination !== "") {
         query.eq("destination", formData.destination);
+      }
 
-      if (formData.duration !== null) query.eq("duration", formData.duration);
+      if (formData.duration !== null && formData.duration !== "") {
+        query.eq("duration", formData.duration);
+      }
 
       const { data } = await query;
-      console.log(data);
       setShowedTravels(data);
     } else {
       const { data } = await supabase
@@ -138,13 +142,13 @@ function TravelList() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newFormData = new FormData(event.target);
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setFormData({
       name: newFormData.get("name"),
       destination: newFormData.get("destination"),
       duration: newFormData.get("duration"),
     });
   };
-
 
   return (
     <div className="travel-list">

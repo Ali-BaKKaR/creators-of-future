@@ -31,6 +31,10 @@
   direction: ltr;
 }
 
+#mobile-top-nav {
+  display: none;
+}
+
 li {
   list-style: none;
 }
@@ -90,7 +94,7 @@ a {
   bottom: 0;
   transition: bottom 0.2s ease;
 }
-.navbar ul{
+.navbar ul {
   list-style: none;
 }
 
@@ -141,7 +145,7 @@ a {
 .nav-item {
   margin: 16px 0;
 }
-.active{
+.active {
   color: #274073;
 }
 .nav-menu.active {
@@ -157,8 +161,13 @@ a {
 }
 
 @media (max-width: 425px) {
-  #mobile-logo{
+  #mobile-logo {
     display: block;
+  }
+
+ #mobile-top-nav{
+    display: block;
+    background-color: white;
   }
   .top-nav {
     display: none;
