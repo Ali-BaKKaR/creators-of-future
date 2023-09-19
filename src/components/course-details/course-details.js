@@ -91,8 +91,8 @@ function CourseDetails() {
                     />
                   </div>
                   <div className="course-info-details">
-                    <h6>ساعات الدوام</h6>
-                    <p>{course.hours} ساعة</p>
+                    <h6>مستوى اللغة</h6>
+                    <p>{course.level}</p>
                   </div>
                 </div>
                 <div className="col-4 course-info">
@@ -117,8 +117,8 @@ function CourseDetails() {
                     />
                   </div>
                   <div className="course-info-details">
-                    <h6>مستوى اللغة</h6>
-                    <p>{course.level}</p>
+                    <h6>ساعات الدوام</h6>
+                    <p>{course.hours} ساعة</p>
                   </div>
                 </div>
               </div>
